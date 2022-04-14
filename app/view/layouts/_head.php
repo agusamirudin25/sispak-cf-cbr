@@ -23,9 +23,10 @@
             <div class="nk-sidebar nk-sidebar-fixed is-dark " data-content="sidebarMenu">
                 <div class="nk-sidebar-element nk-sidebar-head">
                     <div class="nk-sidebar-brand">
-                        <a href="html/index.html" class="logo-link nk-sidebar-logo">
-                            <img class="logo-light logo-img" src="<?= asset('assets/images/logo.png') ?>" alt="logo">
-                            <img class="logo-dark logo-img" src="<?= asset('assets/images/logo-dark.png') ?>" alt="logo-dark">
+                        <a href="<?= base_url('/') ?>" class="logo-link nk-sidebar-logo">
+                            <h3 class="text-white">SISPAK</h3>
+                            <!-- <img class="logo-light logo-img" src="<?= asset('assets/images/logo.png') ?>" alt="logo"> -->
+                            <!-- <img class="logo-dark logo-img" src="<?= asset('assets/images/logo-dark.png') ?>" alt="logo-dark"> -->
                         </a>
                     </div>
                     <div class="nk-menu-trigger mr-n2">
@@ -37,13 +38,13 @@
                         <div class="nk-sidebar-menu" data-simplebar>
                             <ul class="nk-menu">
                                 <li class="nk-menu-item">
-                                    <a href="html/index.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Dashboard/index') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
                                         <span class="nk-menu-text">Dashboard</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/index-crypto.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Pengguna/index') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user"></em></span>
                                         <span class="nk-menu-text">Data Pengguna</span>
                                     </a>

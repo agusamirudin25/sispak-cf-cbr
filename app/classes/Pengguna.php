@@ -12,7 +12,7 @@ class Pengguna
     public function __construct()
     {
         $this->_db = new Database();
-        if (!isset($_SESSION['id_pengguna'])) {
+        if (!isset($_SESSION['emailPengguna'])) {
             redirect('Auth');
         }
     }
@@ -20,7 +20,7 @@ class Pengguna
     public function index()
     {
         $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Kepala Pelaksana';
-        $data['pengguna'] = $this->_db->other_query("SELECT nama_pengguna, nama_lengkap, email, tipe FROM m_pengguna", 2);
+        $data['pengguna'] = $this->_db->other_query("SELECT nama_lengkap, email, tipe FROM tb_pengguna", 2);
         view('layouts/_head');
         view('pengguna/index', $data);
         view('layouts/_foot');

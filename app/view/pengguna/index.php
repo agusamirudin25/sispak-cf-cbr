@@ -1,66 +1,61 @@
-<div class="content-page">
-    <!-- Start content -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="page-title-box">
-                        <h4 class="page-title">Data Pengguna</h4>
+<!-- content @s -->
+<div class="nk-content ">
+    <div class="container-fluid">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="nk-block nk-block-lg">
+                    <div class="nk-block-head">
+                        <div class="nk-block-head-content">
+                            <h4 class="nk-block-title">Data Pengguna</h4>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card m-b-20">
-                        <div class="card-body">
-                            <h4 class="mt-0 header-title m-b-30">Data Pengguna</h4>
-                            <a href="<?= url('Pengguna/tambahPengguna') ?>" class="btn btn-primary float-right">Tambah Data</a>
-
-                            <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <div class="card card-preview">
+                        <div class="card-inner">
+                            <table class="datatable-init nowrap table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Pengguna</th>
-                                        <th>Nama Lengkap</th>
                                         <th>Email</th>
-                                        <th>Role</th>
+                                        <th>Nama</th>
+                                        <th>Tipe</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $no = 1;
-                                    foreach ($pengguna as $row) :
-                                        $tipe = ($row['tipe'] == 1) ? 'Admin' : 'Kepala Pelaksana';
+                                    <?php $no = 1; ?>
+                                    <?php foreach($pengguna as $key => $value): ?>
+                                    <?php 
+                                        switch($value['tipe']){
+                                            case '1':
+                                                $tipe = 'Admin';
+                                                break;
+                                            case '2':
+                                                $tipe = 'Mekanik';
+                                                break;
+                                            case '3':
+                                                $tipe = 'Masyarakat';
+                                                break;
+                                        }
                                     ?>
-                                        <tr>
-                                            <td><?= $no++ ?></td>
-                                            <td><?= $row['nama_pengguna'] ?></td>
-                                            <td><?= $row['nama_lengkap'] ?></td>
-                                            <td><?= $row['email'] ?></td>
-                                            <td><?= $tipe ?></td>
-                                            <td>
-                                                <a class="btn btn-primary waves-effect waves-light" href="<?= url('Pengguna/ubahPengguna/' . $row['nama_pengguna']) ?>" role="button">Ubah</a>
-                                                <a class="btn btn-danger waves-effect waves-light" href="#" onclick="delete_data('<?= $row['nama_pengguna'] ?>', 'Pengguna/hapusPengguna')" role="button">Hapus</a>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $value['email'] ?></td>
+                                        <td><?= $value['nama_lengkap'] ?></td>
+                                        <td><?= $tipe ?></td>
+                                        <td>
+                                            <a href="" class="btn btn-warning">Edit</a>
+                                            <a href="" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
                                     <?php endforeach; ?>
+                                    
                                 </tbody>
                             </table>
-
                         </div>
-                    </div>
-                </div> <!-- end col -->
-            </div> <!-- end row -->
-
-        </div> <!-- container-fluid -->
-
-    </div> <!-- content -->
-
-    <script src="<?= base_url() ?>assets/js/sweetalert2.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/dataTables.bootstrap4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#datatable').DataTable();
-        });
-    </script>
+                    </div><!-- .card-preview -->
+                </div> <!-- nk-block -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content @e -->
