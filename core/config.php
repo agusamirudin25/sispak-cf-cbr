@@ -14,4 +14,4 @@ define('FCPATH', dirname(__DIR__) . "/public/");
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'db_ikcsig');
+define('DB_NAME', 'db_sispak_cf');

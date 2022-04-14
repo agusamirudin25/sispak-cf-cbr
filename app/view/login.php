@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -6,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <meta name="description" content="<?= $title ?>">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="./images/favicon.png">
+    <link rel="shortcut icon" href="<?= asset('assets/images/favicon.png') ?>">
     <!-- Page Title  -->
-    <title>Login | DashLite Admin Template</title>
+    <title>Login | <?= $title ?></title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="<?= asset('assets/css/dashlite.css?ver=2.2.0') ?>">
     <link id="skin-default" rel="stylesheet" href="<?= asset('assets/css/theme.css?ver=2.2.0') ?>">
@@ -44,7 +43,7 @@
                                         </div>
                                     </div>
                                 </div><!-- .nk-block-head -->
-                                <form action="#">
+                                <form method="post" id="formLogin" autocomplete="off">
                                     <div class="form-group">
                                         <div class="form-label-group">
                                             <label class="form-label" for="default-01">Email</label>
@@ -104,5 +103,41 @@
     <!-- JavaScript -->
     <script src="<?= asset('assets/js/bundle.js?ver=2.2.0') ?>"></script>
     <script src="<?= asset('assets/js/scripts.js?ver=2.2.0') ?>"></script>
+    <script src="<?= asset('assets/js/helpers.js?ver=23') ?>"></script>
+    <script>
+        const BASE_URL = "<?= base_url() ?>";
+        $('#formLogin').submit(function(e) {
+            e.preventDefault();
+            let user = $('#email').val();
+            let pass = $('#password').val();
+            if (user.length == 0) {
+                error_alert('Error', 'Email tidak boleh kosong')
+                $("#email").focus();
+                return false;
+            }
+            if (pass.length == 0) {
+                $("#password").focus();
+                error_alert('Error', 'Password tidak boleh kosong')
+                return false;
+            }
+            $.ajax({
+                url: '<?= url() ?>Auth/cek_login',
+                type: 'POST',
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                cache: false,
+                async: false,
+                dataType: "json",
+                success: function(data) {
+                    if (data.login_status == 1) {
+                        success_alert("Berhasil", data.msg, BASE_URL + data.page);
+                    } else {
+                        error_alert("Gagal", data.msg);
+                    }
+                }
+            });
+        });
+    </script>
 
 </html>

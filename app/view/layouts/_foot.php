@@ -1,60 +1,29 @@
- <footer class="footer">
-     © <?= date('Y') ?> STMIK HORIZON - <span class="d-none d-sm-inline-block"> Crafted with <i class="mdi mdi-heart text-danger"></i> by Amirudin</span>.
- </footer>
+<!-- footer @s -->
+<div class="nk-footer">
+    <div class="container-fluid">
+        <div class="nk-footer-wrap">
+            <div class="nk-footer-copyright"> &copy; 2020 DashLite. Template by <a href="https://softnio.com" target="_blank">Softnio</a>
+            </div>
+            <div class="nk-footer-links">
+                <ul class="nav nav-sm">
+                    <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer @e -->
+</div>
+<!-- wrap @e -->
+</div>
+<!-- main @e -->
+</div>
+<!-- app-root @e -->
+<!-- JavaScript -->
+<script src="<?= asset('assets/js/bundle.js?ver=2.2.0') ?>"></script>
+<script src="<?= asset('assets/js/scripts.js?ver=2.2.0') ?>"></script>
+</body>
 
- </div>
-
-
- </div>
- <!-- END wrapper -->
- <!-- jQuery  -->
- <script src="<?= asset() ?>assets/js/bootstrap.bundle.min.js"></script>
- <script src="<?= asset() ?>assets/js/metisMenu.min.js"></script>
- <script src="<?= asset() ?>assets/js/jquery.slimscroll.js"></script>
- <script src="<?= asset() ?>assets/js/waves.min.js"></script>
-
- <script src="<?= asset() ?>assets/js/jquery.sparkline.min.js"></script>
- <script src="<?= asset() ?>assets/js/bootstrap-filestyle.min.js"></script>
- <!-- App js -->
- <script src="<?= asset() ?>assets/js/app.js"></script>
-
- <script>
-     function delete_data(id, ajax) {
-         Swal.fire({
-             title: "Skripsi k-means",
-             text: "Apakah Anda Yakin ?",
-             icon: 'warning',
-             showCancelButton: true,
-             confirmButtonColor: '#3085d6',
-             cancelButtonColor: '#d33',
-             confirmButtonText: 'Hapus'
-         }).then((result) => {
-             if (result.value) {
-                 var string = 'id=' + id;
-                 $.ajax({
-                     type: 'POST',
-                     url: "<?= url() ?>" + ajax,
-                     data: string,
-                     cache: false,
-                     dataType: 'json',
-                     success: function(data) {
-                         if (data.status == 1) {
-                             Swal.fire(
-                                 "Skripsi k-means",
-                                 'Berhasil dihapus.',
-                                 'success'
-                             ).then(function() {
-                                 window.location = "<?= base_url() ?>" + data.page;
-                             })
-                         }
-                     }
-                 });
-
-             }
-         })
-     }
- </script>
-
- </body>
-
- </html>
+</html>
