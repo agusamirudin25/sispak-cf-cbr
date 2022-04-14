@@ -1,0 +1,19 @@
+{
+    "name": "skripsi/agus-amirudin",
+    "description": "Integrasi K-means Clustering dan Sistem Informasi Geografis",
+    "authors": [
+        {
+            "name": "Agus Amirudin",
+            "email": "aamirudinkom@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.17",
+        "setasign/fpdf": "^1.8"
+    }
+}
