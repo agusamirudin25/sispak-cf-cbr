@@ -130,43 +130,18 @@
                                                     <em class="icon ni ni-user-alt"></em>
                                                 </div>
                                                 <div class="user-info d-none d-md-block">
-                                                    <div class="user-status">Administrator</div>
+                                                    <div class="user-status"><?= session_get('nama') ?></div>
                                                     <div class="user-name dropdown-indicator"><?= session_get('nama') ?></div>
                                                 </div>
                                             </div>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropdown-menu-s1">
-                                            <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
-                                                <div class="user-card">
-                                                    <div class="user-avatar">
-                                                        <span>AB</span>
-                                                    </div>
-                                                    <div class="user-info">
-                                                        <span class="lead-text">Abu Bin Ishtiyak</span>
-                                                        <span class="sub-text">info@softnio.com</span>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="dropdown-inner">
                                                 <ul class="link-list">
-                                                    <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                                    <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                                                    <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
-                                                    <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="dropdown-inner">
-                                                <ul class="link-list">
-                                                    <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                                    <li><a href="<?= base_url('Auth/logout') ?>"><em class="icon ni ni-signout"></em><span>Log out</span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
-                                    </li><!-- .dropdown -->
-                                    <li class="dropdown notification-dropdown mr-n1">
-                                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
-                                            <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
-                                        </a>
-                                        
                                     </li><!-- .dropdown -->
                                 </ul><!-- .nk-quick-nav -->
                             </div><!-- .nk-header-tools -->
