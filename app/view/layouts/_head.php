@@ -59,37 +59,32 @@
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/index-analytics.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Gejala') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cpu"></em></span>
                                         <span class="nk-menu-text">Data Gejala</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/index-invest.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Solusi') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-spark"></em></span>
                                         <span class="nk-menu-text">Data Solusi</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
+                               
                                 <li class="nk-menu-item">
-                                    <a href="html/index-invest.html" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-property"></em></span>
-                                        <span class="nk-menu-text">Data Alat</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
-                                    <a href="html/index-invest.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Konsultasi') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
                                         <span class="nk-menu-text">Konsultasi</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/index-invest.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Diagnosis') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cc-alt"></em></span>
                                         <span class="nk-menu-text">Diagnosis</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/index-invest.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Laporan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-reports-alt"></em></span>
                                         <span class="nk-menu-text">Laporan</span>
                                     </a>
