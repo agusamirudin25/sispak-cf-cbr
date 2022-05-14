@@ -13,7 +13,7 @@ class Auth
         $this->auth = new Database();
     }
 
-    public function login()
+    public function index()
     {
         if (isset($_SESSION['id_pengguna'])) {
             redirect('Dashboard');

@@ -7,6 +7,7 @@
                     <div class="nk-block-head">
                         <div class="nk-block-head-content">
                             <h4 class="nk-block-title">Data Pengguna</h4>
+                            <a href="<?= base_url('Pengguna/tambahPengguna') ?>" class="btn btn-primary">Tambah Data</a>
                         </div>
                     </div>
                     <div class="card card-preview">
@@ -43,8 +44,8 @@
                                         <td><?= $value['nama_lengkap'] ?></td>
                                         <td><?= $tipe ?></td>
                                         <td>
-                                            <a href="" class="btn btn-warning">Edit</a>
-                                            <a href="" class="btn btn-danger">Delete</a>
+                                            <a href="<?= base_url('Pengguna/ubahPengguna/' . $value['email']) ?>" class="btn btn-warning">Edit</a>
+                                            <a href="#" onclick="delete_data('<?= $value['email'] ?>', 'Pengguna/hapusPengguna')" role="button" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
