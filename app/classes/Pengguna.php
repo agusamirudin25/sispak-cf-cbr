@@ -19,7 +19,7 @@ class Pengguna
 
     public function index()
     {
-        $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Kepala Pelaksana';
+        $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Mekanik';
         $data['pengguna'] = $this->_db->other_query("SELECT nama_lengkap, email, tipe FROM tb_pengguna", 2);
         view('layouts/_head');
         view('pengguna/index', $data);
@@ -28,7 +28,7 @@ class Pengguna
 
     public function tambahPengguna()
     {
-        $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Kepala Pelaksana';
+        $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Mekanik';
         view('layouts/_head');
         view('pengguna/tambah_pengguna', $data);
         view('layouts/_foot');
@@ -61,7 +61,7 @@ class Pengguna
     }
     public function ubahPengguna($email)
     {
-        $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Kepala Pelaksana';
+        $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Mekanik';
         $data['pengguna'] = $this->_db->other_query("SELECT * FROM tb_pengguna WHERE email = '$email'");
         view('layouts/_head');
         view('pengguna/ubah_pengguna', $data);
