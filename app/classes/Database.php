@@ -103,4 +103,10 @@ class Database
 
         $stmt->execute();
     }
+    function get_last_param($tabel, $param)
+    {
+        $sql = "SELECT * FROM $tabel ORDER BY $param DESC LIMIT 1";
+        $result = $this->conn->query($sql);
+        return $result->fetch_array();
+    }
 }

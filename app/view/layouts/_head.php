@@ -53,7 +53,7 @@
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/index-crypto.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Kerusakan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-virus"></em></span>
                                         <span class="nk-menu-text">Data Kerusakan</span>
                                     </a>
