@@ -53,15 +53,15 @@
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="<?= base_url('Kerusakan') ?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-virus"></em></span>
-                                        <span class="nk-menu-text">Data Kerusakan</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
                                     <a href="<?= base_url('Gejala') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cpu"></em></span>
                                         <span class="nk-menu-text">Data Gejala</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="<?= base_url('Kerusakan') ?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-virus"></em></span>
+                                        <span class="nk-menu-text">Data Kerusakan</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                

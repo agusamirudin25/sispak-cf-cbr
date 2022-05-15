@@ -52,7 +52,7 @@ class Kerusakan
         $alat = $input['alat'];
 
         // query insert
-        $insert = $this->_db->insert("INSERT INTO tb_kerusakan(kode_kerusakan, kerusakan, alat) values ('$kode_kerusakan', '$nama_kerusakan', '$solusi', '$alat')");
+        $insert = $this->_db->insert("INSERT INTO tb_kerusakan(kode_kerusakan, kerusakan, solusi, alat) values ('$kode_kerusakan', '$nama_kerusakan', '$solusi', '$alat')");
         if ($insert) {
             $res['status'] = 1;
             $res['msg'] = "Data Kerusakan berhasil ditambahkan";

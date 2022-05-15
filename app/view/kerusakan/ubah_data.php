@@ -39,9 +39,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="kerusakan">Nama Kerusakan</label>
+                                            <label class="form-label" for="alat">Alat</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" value="<?= $kerusakan->kerusakan ?>" placeholder="Nama Kerusakan" id="kerusakan" name="kerusakan" required>
+                                                <input type="text" class="form-control" value="<?= $kerusakan->alat ?>" placeholder="Alat" id="alat" name="alat" required>
                                             </div>
                                         </div>
                                     </div>
