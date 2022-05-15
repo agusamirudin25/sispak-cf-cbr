@@ -66,6 +66,12 @@
                                 </li><!-- .nk-menu-item -->
                                
                                 <li class="nk-menu-item">
+                                    <a href="<?= base_url('Pengetahuan') ?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
+                                        <span class="nk-menu-text">Pengetahuan</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
                                     <a href="<?= base_url('Konsultasi') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
                                         <span class="nk-menu-text">Konsultasi</span>
