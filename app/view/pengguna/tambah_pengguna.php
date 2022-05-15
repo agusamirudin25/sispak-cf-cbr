@@ -1,101 +1,102 @@
-<div class="content-page">
-    <!-- Start content -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="page-title-box">
-                        <h4 class="page-title">Tambah Pengguna</h4>
+<!-- content @s -->
+<div class="nk-content ">
+    <div class="container-fluid">
+        <div class="nk-content-inner">
+            <div class="nk-content-body">
+                <div class="nk-block nk-block-lg">
+                    <div class="nk-block-head">
+                        <div class="nk-block-head-content">
+                            <h4 class="title nk-block-title">Tambah Data Pengguna</h4>
+                        </div>
                     </div>
-                </div>
-
-            </div>
-            <!-- end row -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card m-b-20">
-                        <div class="card-body">
-                            <form autocomplete="off" id="formTambah">
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Pengguna</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" placeholder="Masukan nama pengguna" name="nama_pengguna" id="nama_pengguna" required>
+                    <div class="card card-bordered">
+                        <div class="card-inner">
+                            <form class="form-validate is-alter" autocomplete="off" id="formTambah">
+                                <div class="row g-gs">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="nama_lengkap">Nama Lengkap</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control" placeholder="Nama Lengkap" id="nama_lengkap" name="nama_lengkap" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="email">Alamat Email</label>
+                                            <div class="form-control-wrap">
+                                                <input type="email" class="form-control" placeholder="Alamat Email" id="email" name="email" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="tipe">Tipe</label>
+                                            <div class="form-control-wrap ">
+                                                <select class="form-control form-select" id="tipe" name="tipe" data-placeholder="Pilih Tipe" required>
+                                                    <option label="empty" value=""></option>
+                                                    <option value="1">Admin</option>
+                                                    <option value="2">Mekanik</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="password">Password</label>
+                                            <div class="form-control-wrap">
+                                                <input type="password" class="form-control" placeholder="Masukan Password" id="password" name="password" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-lg btn-primary">Simpan</button>
+                                            <a href="javascript:history.back()" class="btn btn-lg btn-warning">Batal</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Nama Lengkap</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" placeholder="Masukan nama lengkap" name="nama_lengkap" id="nama_lengkap" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Alamat Email</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="email" placeholder="Masukan @email" name="email" id="email" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-search-input" class="col-sm-2 col-form-label">Tipe</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control" name="tipe" id="tipe" required>
-                                            <option value="">-Pilih Tipe-</option>
-                                            <option value="1">Admin</option>
-                                            <option value="2">Kepala Pelaksana</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Katasandi</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="password" placeholder="*************" name="katasandi" id="katasandi" required>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-success" name="submit">Tambah</button>
-                                <a href="<?= url('Pengguna') ?>" class="btn btn-danger">Kembali</a>
-
                             </form>
                         </div>
                     </div>
-                </div> <!-- end col -->
-            </div> <!-- end row -->
+                </div><!-- .nk-block -->
+            </div>
+        </div>
+    </div>
+</div>
 
-        </div> <!-- container-fluid -->
 
-    </div> <!-- content -->
-
-    <script src="<?= base_url() ?>assets/js/sweetalert2.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/dataTables.bootstrap4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#formTambah').submit(function(e) {
-                e.preventDefault();
-                var data = new FormData(this);
-                $.ajax({
-                    url: '<?= url(); ?>Pengguna/prosesTambahPengguna',
-                    type: "post",
-                    data: data,
-                    processData: false,
-                    contentType: false,
-                    dataType: "json",
-                    success: function(response) {
-                        if (response.status == 1) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Success',
-                                text: response.msg,
-                            }).then(function() {
-                                window.location = "<?= url() ?>" + response.page;
-                            })
-                        } else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Error',
-                                text: response.msg,
-                            })
-                        }
+<script>
+    $(document).ready(function() {
+        $('#formTambah').submit(function(e) {
+            e.preventDefault();
+            var data = new FormData(this);
+            $.ajax({
+                url: '<?= url(); ?>Pengguna/prosesTambahPengguna',
+                type: "post",
+                data: data,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                success: function(response) {
+                    if (response.status == 1) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.msg,
+                        }).then(function() {
+                            window.location = "<?= url() ?>" + response.page;
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.msg,
+                        })
                     }
-                });
+                }
             });
         });
-    </script>
+    });
+</script>

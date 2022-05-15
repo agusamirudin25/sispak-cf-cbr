@@ -47,6 +47,8 @@ class Router
             } else {
                 abort();
             }
+        }else{
+            $this->method = 'index';
         }
 
         // params 

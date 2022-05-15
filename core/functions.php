@@ -50,7 +50,7 @@ function base_url($url = '')
 function redirect($url = '')
 {
     if ($url) {
-        $location = APP_URL . trim($url, '/');
+        $location = base_url() . trim($url, '/');
         header("location: $location");
         die();
     }

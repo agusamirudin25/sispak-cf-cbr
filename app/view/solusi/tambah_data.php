@@ -6,51 +6,37 @@
                 <div class="nk-block nk-block-lg">
                     <div class="nk-block-head">
                         <div class="nk-block-head-content">
-                            <h4 class="title nk-block-title">Ubah Data Pengguna</h4>
+                            <h4 class="title nk-block-title">Tambah Data Solusi</h4>
                         </div>
                     </div>
                     <div class="card card-bordered">
                         <div class="card-inner">
-                            <form class="form-validate is-alter" autocomplete="off" id="formUbah">
+                            <form class="form-validate is-alter" autocomplete="off" id="formTambah">
                                 <div class="row g-gs">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="nama_lengkap">Nama Lengkap</label>
+                                            <label class="form-label" for="kode_solusi">Kode Solusi</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" value="<?= $pengguna->nama_lengkap ?>" placeholder="Nama Lengkap" id="nama_lengkap" name="nama_lengkap" required>
+                                                <input type="text" class="form-control" placeholder="Kode Solusi" value="<?= $kode_otomatis ?>" readonly id="kode_solusi" name="kode_solusi" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="email">Alamat Email</label>
+                                            <label class="form-label" for="solusi">Nama Solusi</label>
                                             <div class="form-control-wrap">
-                                                <input type="email" class="form-control" placeholder="Alamat Email" id="email" value="<?= $pengguna->email ?>" readonly name="email" required>
+                                                <input type="text" class="form-control" placeholder="Nama solusi" id="solusi" name="solusi" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="tipe">Tipe</label>
-                                            <div class="form-control-wrap ">
-                                                <select class="form-control form-select" id="tipe" name="tipe" data-placeholder="Pilih Tipe" required>
-                                                    <option label="empty" value=""></option>
-                                                    <option <?= $pengguna->tipe == 1 ? 'selected' : null ?> value="1">Admin</option>
-                                                    <option <?= $pengguna->tipe == 2 ? 'selected' : null ?> value="2">Mekanik</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="form-label" for="password">Password</label>
+                                            <label class="form-label" for="alat">Alat</label>
                                             <div class="form-control-wrap">
-                                                <input type="password" class="form-control" placeholder="Masukan Password" id="password" name="password">
-                                                <small class="text-info">*Kosongkan password apabila tidak akan mengubahnya</small>                                                
+                                                <input type="text" class="form-control" placeholder="Alat yang digunakan" id="alat" name="alat" required>
                                             </div>
                                         </div>
                                     </div>
-                                    
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-lg btn-primary">Simpan</button>
@@ -66,13 +52,15 @@
         </div>
     </div>
 </div>
+
+
 <script>
     $(document).ready(function() {
-        $('#formUbah').submit(function(e) {
+        $('#formTambah').submit(function(e) {
             e.preventDefault();
             var data = new FormData(this);
             $.ajax({
-                url: '<?= url(); ?>Pengguna/prosesUbahPengguna',
+                url: '<?= url(); ?>Solusi/prosesTambahSolusi',
                 type: "post",
                 data: data,
                 processData: false,

@@ -9,10 +9,13 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="<?= asset('assets/images/favicon.png') ?>">
     <!-- Page Title  -->
-    <title>Sistem Pakar Diagnosis Kerusakan></title>
+    <title>Sistem Pakar Diagnosis Kerusakan</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="<?= asset('assets/css/dashlite.css?ver=2.2.0') ?>">
     <link id="skin-default" rel="stylesheet" href="<?= asset('assets/css/theme.css?ver=2.2.0') ?>">
+
+    <script src="<?= asset('assets/js/bundle.js?ver=2.2.0') ?>"></script>
+    <script src="<?= asset('assets/js/scripts.js?ver=2.2.0') ?>"></script>
 </head>
 
 <body class="nk-body bg-lighter npc-general has-sidebar ">
@@ -50,43 +53,38 @@
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/index-crypto.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Kerusakan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-virus"></em></span>
                                         <span class="nk-menu-text">Data Kerusakan</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/index-analytics.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Gejala') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cpu"></em></span>
                                         <span class="nk-menu-text">Data Gejala</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/index-invest.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Solusi') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-spark"></em></span>
                                         <span class="nk-menu-text">Data Solusi</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
+                               
                                 <li class="nk-menu-item">
-                                    <a href="html/index-invest.html" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-property"></em></span>
-                                        <span class="nk-menu-text">Data Alat</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
-                                    <a href="html/index-invest.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Konsultasi') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
                                         <span class="nk-menu-text">Konsultasi</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/index-invest.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Diagnosis') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cc-alt"></em></span>
                                         <span class="nk-menu-text">Diagnosis</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/index-invest.html" class="nk-menu-link">
+                                    <a href="<?= base_url('Laporan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-reports-alt"></em></span>
                                         <span class="nk-menu-text">Laporan</span>
                                     </a>
@@ -132,43 +130,18 @@
                                                     <em class="icon ni ni-user-alt"></em>
                                                 </div>
                                                 <div class="user-info d-none d-md-block">
-                                                    <div class="user-status">Administrator</div>
+                                                    <div class="user-status"><?= session_get('nama') ?></div>
                                                     <div class="user-name dropdown-indicator"><?= session_get('nama') ?></div>
                                                 </div>
                                             </div>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropdown-menu-s1">
-                                            <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
-                                                <div class="user-card">
-                                                    <div class="user-avatar">
-                                                        <span>AB</span>
-                                                    </div>
-                                                    <div class="user-info">
-                                                        <span class="lead-text">Abu Bin Ishtiyak</span>
-                                                        <span class="sub-text">info@softnio.com</span>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="dropdown-inner">
                                                 <ul class="link-list">
-                                                    <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                                    <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                                                    <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
-                                                    <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="dropdown-inner">
-                                                <ul class="link-list">
-                                                    <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                                    <li><a href="<?= base_url('Auth/logout') ?>"><em class="icon ni ni-signout"></em><span>Log out</span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
-                                    </li><!-- .dropdown -->
-                                    <li class="dropdown notification-dropdown mr-n1">
-                                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
-                                            <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
-                                        </a>
-                                        
                                     </li><!-- .dropdown -->
                                 </ul><!-- .nk-quick-nav -->
                             </div><!-- .nk-header-tools -->
