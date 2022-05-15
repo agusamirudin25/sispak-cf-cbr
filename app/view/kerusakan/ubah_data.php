@@ -29,6 +29,22 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="solusi">Solusi</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control" value="<?= $kerusakan->solusi ?>" placeholder="Solusi" id="solusi" name="solusi" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="kerusakan">Nama Kerusakan</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control" value="<?= $kerusakan->kerusakan ?>" placeholder="Nama Kerusakan" id="kerusakan" name="kerusakan" required>
+                                            </div>
+                                        </div>
+                                    </div>
                                                                        
                                     <div class="col-md-12">
                                         <div class="form-group">

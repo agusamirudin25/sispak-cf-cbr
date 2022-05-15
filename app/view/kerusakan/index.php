@@ -18,6 +18,8 @@
                                         <th>No</th>
                                         <th>Kode Kerusakan</th>
                                         <th>Kerusakan</th>
+                                        <th>Solusi</th>
+                                        <th>Alat</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -28,6 +30,8 @@
                                         <td><?= $no++ ?></td>
                                         <td><?= $row['kode_kerusakan'] ?></td>
                                         <td><?= $row['kerusakan'] ?></td>
+                                        <td><?= $row['solusi'] ?></td>
+                                        <td><?= $row['alat'] ?></td>
                                         <td>
                                             <a href="<?= base_url('Kerusakan/ubahKerusakan/' . $row['kode_kerusakan']) ?>" class="btn btn-warning">Edit</a>
                                             <a href="#" onclick="delete_data('<?= $row['kode_kerusakan'] ?>', 'Kerusakan/hapusKerusakan')" role="button" class="btn btn-danger">Delete</a>

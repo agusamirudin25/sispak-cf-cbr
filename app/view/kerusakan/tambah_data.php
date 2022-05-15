@@ -29,6 +29,22 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="solusi">Solusi</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control" placeholder="Solusi" id="solusi" name="solusi" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="alat">ALat</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control" placeholder="Alat" id="alat" name="alat" required>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-lg btn-primary">Simpan</button>

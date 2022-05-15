@@ -64,12 +64,6 @@
                                         <span class="nk-menu-text">Data Gejala</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
-                                    <a href="<?= base_url('Solusi') ?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-spark"></em></span>
-                                        <span class="nk-menu-text">Data Solusi</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
                                
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Konsultasi') ?>" class="nk-menu-link">
