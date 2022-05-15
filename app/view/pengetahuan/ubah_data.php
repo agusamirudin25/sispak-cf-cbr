@@ -6,26 +6,45 @@
                 <div class="nk-block nk-block-lg">
                     <div class="nk-block-head">
                         <div class="nk-block-head-content">
-                            <h4 class="title nk-block-title">Ubah Data Gejala</h4>
+                            <h4 class="title nk-block-title">Ubah Data Pengetahuan</h4>
                         </div>
                     </div>
                     <div class="card card-bordered">
                         <div class="card-inner">
                             <form class="form-validate is-alter" autocomplete="off" id="formUbah">
+                                <input type="hidden" name="id" value="<?= $pengetahuan->id ?>">
                                 <div class="row g-gs">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="kode_gejala">Kode Gejala</label>
+                                            <label class="form-label" for="gejala">Gejala</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" placeholder="Kode Gejala" value="<?= $gejala->kode_gejala ?>" readonly id="kode_gejala" name="kode_gejala" required>
+                                                <select class="form-control" name="gejala" id="gejala">
+                                                    <option value="">Pilih Gejala</option>
+                                                    <?php foreach ($gejala as $g) : ?>
+                                                        <option <?= $g['kode_gejala'] == $pengetahuan->kode_gejala ? 'selected' : null ?> value="<?= $g['kode_gejala'] ?>"><?= $g['gejala'] ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="gejala">Nama Gejala</label>
+                                            <label class="form-label" for="kerusakan">Kerusakan</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" placeholder="Nama gejala" value="<?= $gejala->gejala ?>" id="gejala" name="gejala" required>
+                                                <select class="form-control" name="kerusakan" id="kerusakan">
+                                                    <option value="">Pilih Kerusakan</option>
+                                                    <?php foreach ($kerusakan as $row) : ?>
+                                                        <option <?= $row['kode_kerusakan'] == $pengetahuan->kode_kerusakan ? 'selected' : null ?> value="<?= $row['kode_kerusakan'] ?>"><?= $row['kerusakan'] ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="bobot">Nilai Pakar</label>
+                                            <div class="form-control-wrap">
+                                                <input type="text" class="form-control" value="<?= $pengetahuan->bobot ?>" placeholder="Nilai Pakar" id="bobot" name="bobot" required>
                                             </div>
                                         </div>
                                     </div>
@@ -51,7 +70,7 @@
             e.preventDefault();
             var data = new FormData(this);
             $.ajax({
-                url: '<?= url(); ?>Gejala/prosesUbahGejala',
+                url: '<?= url(); ?>Pengetahuan/prosesUbahPengetahuan',
                 type: "post",
                 data: data,
                 processData: false,
