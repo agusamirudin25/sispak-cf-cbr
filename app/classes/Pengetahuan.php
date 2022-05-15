@@ -44,6 +44,13 @@ class Pengetahuan
         $kerusakan = $input['kerusakan'];
         $bobot = $input['bobot'];
 
+        // check duplicate
+        $check = $this->_db->other_query("SELECT * FROM tb_pengetahuan WHERE kode_gejala = '$gejala' AND kode_kerusakan = '$kerusakan'", 2);
+        if ($check) {
+            echo json_encode(array('status' => 0, 'msg' => 'Data sudah ada'));
+            die;
+        }
+
         // query insert
         $insert = $this->_db->insert("INSERT INTO tb_pengetahuan(kode_gejala, kode_kerusakan, bobot) values ('$gejala', '$kerusakan', '$bobot')");
         if ($insert) {
@@ -60,8 +67,6 @@ class Pengetahuan
     {
         $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Pakar';
         $data['pengetahuan'] = $this->_db->get("SELECT * FROM tb_pengetahuan WHERE id = '$kode'");
-        // var_dump($data['pengetahuan']);
-        // die;
         $data['gejala'] = $this->_db->other_query("SELECT * FROM tb_gejala", 2);
         $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan", 2);
         view('layouts/_head');
@@ -74,6 +79,13 @@ class Pengetahuan
         $gejala = $input['gejala'];
         $kerusakan = $input['kerusakan'];
         $bobot = $input['bobot'];
+
+         // check duplicate
+         $check = $this->_db->other_query("SELECT * FROM tb_pengetahuan WHERE kode_gejala = '$gejala' AND kode_kerusakan = '$kerusakan' AND id != '$input[id]'", 2);
+         if ($check) {
+             echo json_encode(array('status' => 0, 'msg' => 'Data sudah ada'));
+             die;
+         }
         
         // query update
         $update = $this->_db->edit("UPDATE tb_pengetahuan SET kode_gejala = '$gejala', kode_kerusakan = '$kerusakan', bobot = '$bobot' WHERE id = '$input[id]'");
