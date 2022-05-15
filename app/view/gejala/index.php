@@ -18,7 +18,6 @@
                                         <th>No</th>
                                         <th>Kode Gejala</th>
                                         <th>Gejala</th>
-                                        <th>Nilai Pakar</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -29,7 +28,6 @@
                                         <td><?= $no++ ?></td>
                                         <td><?= $row['kode_gejala'] ?></td>
                                         <td><?= $row['gejala'] ?></td>
-                                        <td><?= $row['bobot'] ?></td>
                                         <td>
                                             <a href="<?= base_url('Gejala/ubahGejala/' . $row['kode_gejala']) ?>" class="btn btn-warning">Edit</a>
                                             <a href="#" onclick="delete_data('<?= $row['kode_gejala'] ?>', 'Gejala/hapusGejala')" role="button" class="btn btn-danger">Delete</a>
