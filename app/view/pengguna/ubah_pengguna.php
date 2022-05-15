@@ -36,7 +36,7 @@
                                                 <select class="form-control form-select" id="tipe" name="tipe" data-placeholder="Pilih Tipe" required>
                                                     <option label="empty" value=""></option>
                                                     <option <?= $pengguna->tipe == 1 ? 'selected' : null ?> value="1">Admin</option>
-                                                    <option <?= $pengguna->tipe == 2 ? 'selected' : null ?> value="1">Mekanik</option>
+                                                    <option <?= $pengguna->tipe == 2 ? 'selected' : null ?> value="2">Mekanik</option>
                                                 </select>
                                             </div>
                                         </div>

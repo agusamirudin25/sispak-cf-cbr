@@ -36,7 +36,7 @@
                                                 <select class="form-control form-select" id="tipe" name="tipe" data-placeholder="Pilih Tipe" required>
                                                     <option label="empty" value=""></option>
                                                     <option value="1">Admin</option>
-                                                    <option value="1">Mekanik</option>
+                                                    <option value="2">Mekanik</option>
                                                 </select>
                                             </div>
                                         </div>
