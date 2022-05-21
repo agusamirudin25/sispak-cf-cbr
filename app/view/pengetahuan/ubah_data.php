@@ -44,7 +44,11 @@
                                         <div class="form-group">
                                             <label class="form-label" for="bobot">Nilai Pakar</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" value="<?= $pengetahuan->bobot ?>" placeholder="Nilai Pakar" id="bobot" name="bobot" required>
+                                                <select id="bobot" class="form-control" name="bobot" required>
+                                                <?php foreach ($bobot as $row) : ?>
+                                                    <option <?= $pengetahuan->bobot == $row['nilai'] ? 'selected' : null ?> value="<?= $row['nilai'] ?>"><?= $row['keterangan'] ?></option>
+                                                <?php endforeach; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

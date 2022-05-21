@@ -9,6 +9,11 @@ header('Access-Control-Allow-Origin:*');
 class Pengetahuan
 {
     protected $_db;
+    protected $id;
+    protected $kode_gejala;
+    protected $kode_kerusakan;
+    protected $bobot;
+
     public function __construct()
     {
         $this->_db = new Database();
@@ -33,6 +38,7 @@ class Pengetahuan
         $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Pakar';
         $data['gejala'] = $this->_db->other_query("SELECT * FROM tb_gejala", 2);
         $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan", 2);
+        $data['bobot'] = $this->_db->other_query("SELECT * FROM tb_bobot", 2);
         view('layouts/_head');
         view('pengetahuan/tambah_data', $data);
         view('layouts/_foot');
@@ -69,6 +75,7 @@ class Pengetahuan
         $data['pengetahuan'] = $this->_db->get("SELECT * FROM tb_pengetahuan WHERE id = '$kode'");
         $data['gejala'] = $this->_db->other_query("SELECT * FROM tb_gejala", 2);
         $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan", 2);
+        $data['bobot'] = $this->_db->other_query("SELECT * FROM tb_bobot", 2);
         view('layouts/_head');
         view('pengetahuan/ubah_data', $data);
         view('layouts/_foot');

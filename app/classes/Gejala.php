@@ -9,6 +9,10 @@ header('Access-Control-Allow-Origin:*');
 class Gejala
 {
     protected $_db;
+    protected $kode_gejala;
+    protected $gejala;
+    protected $status;
+    
     public function __construct()
     {
         $this->_db = new Database();

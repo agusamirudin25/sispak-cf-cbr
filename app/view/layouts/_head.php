@@ -28,8 +28,6 @@
                     <div class="nk-sidebar-brand">
                         <a href="<?= base_url('/') ?>" class="logo-link nk-sidebar-logo">
                             <h3 class="text-white">SISPAK</h3>
-                            <!-- <img class="logo-light logo-img" src="<?= asset('assets/images/logo.png') ?>" alt="logo"> -->
-                            <!-- <img class="logo-dark logo-img" src="<?= asset('assets/images/logo-dark.png') ?>" alt="logo-dark"> -->
                         </a>
                     </div>
                     <div class="nk-menu-trigger mr-n2">
@@ -40,65 +38,105 @@
                     <div class="nk-sidebar-content">
                         <div class="nk-sidebar-menu" data-simplebar>
                             <ul class="nk-menu">
+                                <?php if(session_get('type') == 1) : ?>
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Dashboard/index') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
                                         <span class="nk-menu-text">Dashboard</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Pengguna/index') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user"></em></span>
                                         <span class="nk-menu-text">Data Pengguna</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Gejala') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cpu"></em></span>
                                         <span class="nk-menu-text">Data Gejala</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Kerusakan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-virus"></em></span>
                                         <span class="nk-menu-text">Data Kerusakan</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
-                               
+                                </li>
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Pengetahuan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
                                         <span class="nk-menu-text">Pengetahuan</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
-                                    <a href="<?= base_url('Konsultasi') ?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
-                                        <span class="nk-menu-text">Konsultasi</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Diagnosis') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cc-alt"></em></span>
                                         <span class="nk-menu-text">Diagnosis</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="<?= base_url('Konsultasi') ?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
+                                        <span class="nk-menu-text">Konsultasi</span>
+                                    </a>
+                                </li>
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Laporan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-reports-alt"></em></span>
                                         <span class="nk-menu-text">Laporan</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <?php endif; ?>
+
+                                <?php if(session_get('type') == 2) : ?>
+                                    <li class="nk-menu-item">
+                                        <a href="<?= base_url('Dashboard/index') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
+                                            <span class="nk-menu-text">Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item">
+                                        <a href="<?= base_url('Pengetahuan') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
+                                            <span class="nk-menu-text">Pengetahuan</span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item">
+                                        <a href="<?= base_url('Diagnosis') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-cc-alt"></em></span>
+                                            <span class="nk-menu-text">Diagnosis</span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item">
+                                        <a href="<?= base_url('Konsultasi') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
+                                            <span class="nk-menu-text">Konsultasi</span>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+
+                                <?php if(session_get('type') == 3) : ?>
+                                    <li class="nk-menu-item">
+                                        <a href="<?= base_url('Diagnosis') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-cc-alt"></em></span>
+                                            <span class="nk-menu-text">Diagnosis</span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item">
+                                        <a href="<?= base_url('Konsultasi') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
+                                            <span class="nk-menu-text">Konsultasi</span>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Auth/logout') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-signout"></em></span>
                                         <span class="nk-menu-text">Logout</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
-                                
-                                
-                                
-                                
+                                </li>
                             </ul><!-- .nk-menu -->
                         </div><!-- .nk-sidebar-menu -->
                     </div><!-- .nk-sidebar-content -->
@@ -114,12 +152,6 @@
                             <div class="nk-menu-trigger d-xl-none ml-n1">
                                 <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
                             </div>
-                            <div class="nk-header-brand d-xl-none">
-                                <a href="html/index.html" class="logo-link">
-                                    <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                                    <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
-                                </a>
-                            </div><!-- .nk-header-brand -->
                            
                             <div class="nk-header-tools">
                                 <ul class="nk-quick-nav">

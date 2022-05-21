@@ -35,8 +35,9 @@
                                             <div class="form-control-wrap ">
                                                 <select class="form-control form-select" id="tipe" name="tipe" data-placeholder="Pilih Tipe" required>
                                                     <option label="empty" value=""></option>
-                                                    <option <?= $pengguna->tipe == 1 ? 'selected' : null ?> value="1">Admin</option>
-                                                    <option <?= $pengguna->tipe == 2 ? 'selected' : null ?> value="2">Mekanik</option>
+                                                    <?php foreach($role as $row) : ?>
+                                                        <option <?= $pengguna->tipe == $row['id'] ? 'selected' : null ?> value="<?= $row['id'] ?>"><?= $row['role'] ?></option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                         </div>

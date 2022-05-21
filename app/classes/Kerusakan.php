@@ -9,6 +9,12 @@ header('Access-Control-Allow-Origin:*');
 class Kerusakan
 {
     protected $_db;
+    protected $kode_kerusakan;
+    protected $kerusakan;
+    protected $solusi;
+    protected $alat;
+    protected $status;
+
     public function __construct()
     {
         $this->_db = new Database();
