@@ -6,7 +6,7 @@
                 <div class="nk-block nk-block-lg">
                     <div class="nk-block-head">
                         <div class="nk-block-head-content">
-                            <h4 class="title nk-block-title">Tambah Data Solusi</h4>
+                            <h4 class="title nk-block-title">Tambah Data Pengetahuan</h4>
                         </div>
                     </div>
                     <div class="card card-bordered">
@@ -15,28 +15,43 @@
                                 <div class="row g-gs">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="kode_solusi">Kode Solusi</label>
+                                            <label class="form-label" for="gejala">Gejala</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" placeholder="Kode Solusi" value="<?= $kode_otomatis ?>" readonly id="kode_solusi" name="kode_solusi" required>
+                                                <select class="form-control" name="gejala" id="gejala">
+                                                    <option value="">Pilih Gejala</option>
+                                                    <?php foreach ($gejala as $g) : ?>
+                                                        <option value="<?= $g['kode_gejala'] ?>"><?= $g['gejala'] ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="solusi">Nama Solusi</label>
+                                            <label class="form-label" for="kerusakan">Kerusakan</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" placeholder="Nama solusi" id="solusi" name="solusi" required>
+                                                <select class="form-control" name="kerusakan" id="kerusakan">
+                                                    <option value="">Pilih Kerusakan</option>
+                                                    <?php foreach ($kerusakan as $row) : ?>
+                                                        <option value="<?= $row['kode_kerusakan'] ?>"><?= $row['kerusakan'] ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="alat">Alat</label>
+                                            <label class="form-label" for="bobot">Nilai Pakar</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" placeholder="Alat yang digunakan" id="alat" name="alat" required>
+                                                <select id="bobot" class="form-control" name="bobot">
+                                                <?php foreach ($bobot as $row) : ?>
+                                                    <option value="<?= $row['nilai'] ?>"><?= $row['keterangan'] ?></option>
+                                                <?php endforeach; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-lg btn-primary">Simpan</button>
@@ -60,7 +75,7 @@
             e.preventDefault();
             var data = new FormData(this);
             $.ajax({
-                url: '<?= url(); ?>Solusi/prosesTambahSolusi',
+                url: '<?= url(); ?>Pengetahuan/prosesTambahPengetahuan',
                 type: "post",
                 data: data,
                 processData: false,

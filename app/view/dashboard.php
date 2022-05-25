@@ -8,7 +8,7 @@
                         <div class="nk-block-head-content">
                             <h3 class="nk-block-title page-title">Dashboard</h3>
                             <div class="nk-block-des text-soft">
-                                <p>Selamat Datang di Aplikasi Sistem Pakar Mendiagnosis Kerusakan</p>
+                                <p>Selamat Datang di Aplikasi Sistem Pakar Mendiagnosa Kerusakan Pada Mesin Mobil Matic</p>
                             </div>
                         </div><!-- .nk-block-head-content -->
                     </div><!-- .nk-block-between -->
@@ -27,7 +27,7 @@
                                         </div>
                                     </div>
                                     <div class="card-amount">
-                                        <span class="amount">25</span>
+                                        <span class="amount"><?= $total_kerusakan ?></span>
                                     </div>
                                 </div>
                             </div><!-- .card -->
@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
                                     <div class="card-amount">
-                                        <span class="amount"> 20</span>
+                                        <span class="amount"> <?= $total_gejala ?></span>
                                     </div>
                                 </div>
                             </div><!-- .card -->
@@ -54,14 +54,14 @@
                                 <div class="card-inner">
                                     <div class="card-title-group align-start mb-0">
                                         <div class="card-title">
-                                            <h6 class="subtitle">Total Solusi</h6>
+                                            <h6 class="subtitle">Total Konsultasi</h6>
                                         </div>
                                         <div class="card-tools">
                                             <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Total Balance in Account"></em>
                                         </div>
                                     </div>
                                     <div class="card-amount">
-                                        <span class="amount">25 </span>
+                                        <span class="amount"><?= $total_konsultasi ?></span>
                                     </div>
                                 </div>
                             </div><!-- .card -->

@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="nk-footer-wrap">
             <div class="nk-footer-copyright"> 
-                &copy; 2022 Sistem Pakar Diagnosis Kerusakan
+                &copy; 2022 Sistem Pakar Mendiagnosa Kerusakan Pada Mesin Mobil Matic
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
 <script>
     function delete_data(id, ajax) {
          Swal.fire({
-             title: "Sistem Pakar Diagnosis Kerusakan",
+             title: "Sistem Pakar",
              text: "Apakah Anda Yakin menghapus data ini ?",
              icon: 'warning',
              showCancelButton: true,
@@ -38,7 +38,7 @@
                      success: function(data) {
                          if (data.status == 1) {
                              Swal.fire(
-                                 "Sistem Pakar Diagnosis Kerusakan",
+                                 "Sistem Pakar",
                                  'Berhasil dihapus.',
                                  'success'
                              ).then(function() {

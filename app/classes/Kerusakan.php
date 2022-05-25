@@ -9,6 +9,12 @@ header('Access-Control-Allow-Origin:*');
 class Kerusakan
 {
     protected $_db;
+    protected $kode_kerusakan;
+    protected $kerusakan;
+    protected $solusi;
+    protected $alat;
+    protected $status;
+
     public function __construct()
     {
         $this->_db = new Database();
@@ -48,9 +54,11 @@ class Kerusakan
         $input = post();
         $kode_kerusakan = $input['kode_kerusakan'];
         $nama_kerusakan = $input['kerusakan'];
+        $solusi = $input['solusi'];
+        $alat = $input['alat'];
 
         // query insert
-        $insert = $this->_db->insert("INSERT INTO tb_kerusakan(kode_kerusakan, kerusakan) values ('$kode_kerusakan', '$nama_kerusakan')");
+        $insert = $this->_db->insert("INSERT INTO tb_kerusakan(kode_kerusakan, kerusakan, solusi, alat) values ('$kode_kerusakan', '$nama_kerusakan', '$solusi', '$alat')");
         if ($insert) {
             $res['status'] = 1;
             $res['msg'] = "Data Kerusakan berhasil ditambahkan";
@@ -74,8 +82,10 @@ class Kerusakan
         $input = post();
         $kode_kerusakan = $input['kode_kerusakan'];
         $nama_kerusakan = $input['kerusakan'];
+        $solusi = $input['solusi'];
+        $alat = $input['alat'];
         // query update
-        $update = $this->_db->edit("UPDATE tb_kerusakan SET kerusakan = '$nama_kerusakan' WHERE kode_kerusakan = '$kode_kerusakan'");
+        $update = $this->_db->edit("UPDATE tb_kerusakan SET kerusakan = '$nama_kerusakan', solusi = '$solusi', alat = '$alat' WHERE kode_kerusakan = '$kode_kerusakan'");
         if ($update) {
             $res['status'] = 1;
             $res['msg'] = "Data Kerusakan berhasil diubah";

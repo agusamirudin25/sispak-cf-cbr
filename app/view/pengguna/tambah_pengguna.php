@@ -35,8 +35,9 @@
                                             <div class="form-control-wrap ">
                                                 <select class="form-control form-select" id="tipe" name="tipe" data-placeholder="Pilih Tipe" required>
                                                     <option label="empty" value=""></option>
-                                                    <option value="1">Admin</option>
-                                                    <option value="2">Mekanik</option>
+                                                    <?php foreach($role as $row) : ?>
+                                                        <option value="<?= $row['id'] ?>"><?= $row['role'] ?></option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                         </div>

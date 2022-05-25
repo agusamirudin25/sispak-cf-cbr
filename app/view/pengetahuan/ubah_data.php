@@ -6,34 +6,49 @@
                 <div class="nk-block nk-block-lg">
                     <div class="nk-block-head">
                         <div class="nk-block-head-content">
-                            <h4 class="title nk-block-title">Ubah Data Solusi</h4>
+                            <h4 class="title nk-block-title">Ubah Data Pengetahuan</h4>
                         </div>
                     </div>
                     <div class="card card-bordered">
                         <div class="card-inner">
                             <form class="form-validate is-alter" autocomplete="off" id="formUbah">
+                                <input type="hidden" name="id" value="<?= $pengetahuan->id ?>">
                                 <div class="row g-gs">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="kode_solusi">Kode Gejala</label>
+                                            <label class="form-label" for="gejala">Gejala</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" placeholder="Kode Gejala" value="<?= $solusi->kode_solusi ?>" readonly id="kode_solusi" name="kode_solusi" required>
+                                                <select class="form-control" name="gejala" id="gejala">
+                                                    <option value="">Pilih Gejala</option>
+                                                    <?php foreach ($gejala as $g) : ?>
+                                                        <option <?= $g['kode_gejala'] == $pengetahuan->kode_gejala ? 'selected' : null ?> value="<?= $g['kode_gejala'] ?>"><?= $g['gejala'] ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="solusi">Nama Solusi</label>
+                                            <label class="form-label" for="kerusakan">Kerusakan</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" value="<?= $solusi->solusi ?>" placeholder="Nama solusi" id="solusi" name="solusi" required>
+                                                <select class="form-control" name="kerusakan" id="kerusakan">
+                                                    <option value="">Pilih Kerusakan</option>
+                                                    <?php foreach ($kerusakan as $row) : ?>
+                                                        <option <?= $row['kode_kerusakan'] == $pengetahuan->kode_kerusakan ? 'selected' : null ?> value="<?= $row['kode_kerusakan'] ?>"><?= $row['kerusakan'] ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="alat">Alat</label>
+                                            <label class="form-label" for="bobot">Nilai Pakar</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" value="<?= $solusi->alat ?>" placeholder="Alat yang digunakan" id="alat" name="alat" required>
+                                                <select id="bobot" class="form-control" name="bobot" required>
+                                                <?php foreach ($bobot as $row) : ?>
+                                                    <option <?= $pengetahuan->bobot == $row['nilai'] ? 'selected' : null ?> value="<?= $row['nilai'] ?>"><?= $row['keterangan'] ?></option>
+                                                <?php endforeach; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -59,7 +74,7 @@
             e.preventDefault();
             var data = new FormData(this);
             $.ajax({
-                url: '<?= url(); ?>Solusi/prosesUbahSolusi',
+                url: '<?= url(); ?>Pengetahuan/prosesUbahPengetahuan',
                 type: "post",
                 data: data,
                 processData: false,

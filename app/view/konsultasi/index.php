@@ -6,8 +6,10 @@
                 <div class="nk-block nk-block-lg">
                     <div class="nk-block-head">
                         <div class="nk-block-head-content">
-                            <h4 class="nk-block-title">Data Solusi</h4>
-                            <a href="<?= base_url('Solusi/tambahSolusi') ?>" class="btn btn-primary">Tambah Data</a>
+                            <h4 class="nk-block-title">Data Konsultasi</h4>
+                            <?php if(session_get('type') == 3) : ?>
+                                <a href="<?= base_url('Konsultasi/tambahKonsultasi') ?>" class="btn btn-primary">Tambah Konsultasi</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="card card-preview">
@@ -16,23 +18,24 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kode Solusi</th>
-                                        <th>Solusi</th>
-                                        <th>Nilai Pakar</th>
+                                        <th>Pertanyaan</th>
+                                        <?php if(session_get('type') != 3) : ?>
+                                        <th>Nama</th>
+                                        <?php endif; ?>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 1; ?>
-                                    <?php foreach($solusi as $row): ?>
+                                    <?php foreach($konsultasi as $row): ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $row['kode_solusi'] ?></td>
-                                        <td><?= $row['solusi'] ?></td>
-                                        <td><?= $row['alat'] ?></td>
+                                        <td><?= $row['pertanyaan'] ?></td>
+                                        <?php if(session_get('type') != 3) : ?>
+                                            <td><?= $row['nama_lengkap'] ?></td>
+                                        <?php endif; ?>
                                         <td>
-                                            <a href="<?= base_url('Solusi/ubahSolusi/' . $row['kode_solusi']) ?>" class="btn btn-warning">Edit</a>
-                                            <a href="#" onclick="delete_data('<?= $row['kode_solusi'] ?>', 'Solusi/hapusSolusi')" role="button" class="btn btn-danger">Delete</a>
+                                            <a href="<?= base_url('Konsultasi/detailKonsultasi/' . $row['id']) ?>" class="btn btn-warning">Lihat</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

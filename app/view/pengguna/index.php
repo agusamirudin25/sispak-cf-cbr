@@ -25,24 +25,11 @@
                                 <tbody>
                                     <?php $no = 1; ?>
                                     <?php foreach($pengguna as $key => $value): ?>
-                                    <?php 
-                                        switch($value['tipe']){
-                                            case '1':
-                                                $tipe = 'Admin';
-                                                break;
-                                            case '2':
-                                                $tipe = 'Mekanik';
-                                                break;
-                                            case '3':
-                                                $tipe = 'Masyarakat';
-                                                break;
-                                        }
-                                    ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $value['email'] ?></td>
                                         <td><?= $value['nama_lengkap'] ?></td>
-                                        <td><?= $tipe ?></td>
+                                        <td><?= $value['role'] ?></td>
                                         <td>
                                             <a href="<?= base_url('Pengguna/ubahPengguna/' . $value['email']) ?>" class="btn btn-warning">Edit</a>
                                             <a href="#" onclick="delete_data('<?= $value['email'] ?>', 'Pengguna/hapusPengguna')" role="button" class="btn btn-danger">Delete</a>

@@ -18,7 +18,7 @@ class Auth
         if (isset($_SESSION['id_pengguna'])) {
             redirect('Dashboard');
         }
-        $title = 'Sistem Pakar Diagnosis Kerusakan Kendaraan';
+        $title = 'Sistem Pakar Mendiagnosa Kerusakan Pada Mesin Mobil Matic';
 
         return view('login', compact('title'));
     }
@@ -43,7 +43,11 @@ class Auth
                     $data['title'] = 'Login Success';
                     $data['msg'] = 'Data ditemukan';
                     $data['login_status'] = 1;
-                    $data['page'] = 'Dashboard/index';
+                    if($type == '3'){
+                        $data['page'] = 'Diagnosis';
+                    }else{
+                        $data['page'] = 'Dashboard';
+                    }
                     session_set('emailPengguna', $emailPengguna);
                     session_set('nama', $nama);
                     session_set('type', $type);
@@ -61,6 +65,39 @@ class Auth
 
         echo json_encode($data);
     }
+
+    public function register()
+    {
+        $title = 'Register';
+        return view('register', compact('title'));
+    }
+
+    public function proses_register()
+    {
+        $input = post($_POST);
+        $nama = $input['nama_lengkap'];
+        $email = $input['email'];
+        $password = $input['password'];
+
+       // cek duplikasi email
+        $cek_email = $this->auth->get("SELECT * from tb_pengguna WHERE email = '$email'");
+        if ($cek_email) {
+            $data['msg'] = 'Email sudah terdaftar !';
+            $data['title'] = 'Registrasi Failed ';
+            $data['status'] = 0;
+        } else {
+            $data['msg'] = 'Registrasi berhasil! Silakan melakukan login';
+            $data['title'] = 'Registrasi Success ';
+            $data['status'] = 1;
+            $data['page'] = 'Auth';
+            // insert
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            $this->auth->insert("INSERT INTO tb_pengguna (nama_lengkap, email, `password`, tipe, `status`) VALUES ('$nama', '$email', '$password', '3', 1)");
+        }
+        echo json_encode($data);
+        die;
+    }
+
     public function logout()
     {
         session_del('emailPengguna');

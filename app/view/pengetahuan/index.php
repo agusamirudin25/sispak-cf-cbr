@@ -6,8 +6,8 @@
                 <div class="nk-block nk-block-lg">
                     <div class="nk-block-head">
                         <div class="nk-block-head-content">
-                            <h4 class="nk-block-title">Data Gejala</h4>
-                            <a href="<?= base_url('Gejala/tambahGejala') ?>" class="btn btn-primary">Tambah Data</a>
+                            <h4 class="nk-block-title">Data Pengetahuan</h4>
+                            <a href="<?= base_url('Pengetahuan/tambahPengetahuan') ?>" class="btn btn-primary">Tambah Data</a>
                         </div>
                     </div>
                     <div class="card card-preview">
@@ -16,21 +16,23 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kode Gejala</th>
-                                        <th>Gejala</th>
+                                        <th>Nama Gejala</th>
+                                        <th>Nama Kerusakan</th>
+                                        <th>Nilai Pakar</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 1; ?>
-                                    <?php foreach($gejala as $row): ?>
+                                    <?php foreach($pengetahuan as $row): ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $row['kode_gejala'] ?></td>
                                         <td><?= $row['gejala'] ?></td>
+                                        <td><?= $row['kerusakan'] ?></td>
+                                        <td><?= $row['bobot'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('Gejala/ubahGejala/' . $row['kode_gejala']) ?>" class="btn btn-warning">Edit</a>
-                                            <a href="#" onclick="delete_data('<?= $row['kode_gejala'] ?>', 'Gejala/hapusGejala')" role="button" class="btn btn-danger">Delete</a>
+                                            <a href="<?= base_url('Pengetahuan/ubahPengetahuan/' . $row['id']) ?>" class="btn btn-warning">Edit</a>
+                                            <a href="#" onclick="delete_data('<?= $row['id'] ?>', 'Pengetahuan/hapusPengetahuan')" role="button" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

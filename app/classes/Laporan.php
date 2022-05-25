@@ -1,9 +1,6 @@
 <?php
 
-namespace App\Controller;
-
-
-use App\model\Database;
+namespace App\Classes;
 
 header('Access-Control-Allow-Origin:*');
 
@@ -14,25 +11,15 @@ class Laporan
     public function __construct()
     {
         $this->_db = new Database();
-        if (!isset($_SESSION['id_pengguna'])) {
+        if (!isset($_SESSION['emailPengguna'])) {
             redirect('Auth');
         }
     }
 
     public function index()
     {
-        $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Kepala Pelaksana';
-        $data_bencana = $this->_db->other_query("SELECT * FROM v_dataset", 2);
-        $jumlah = [];
-        $kecamatan = [];
-        foreach ($data_bencana as $dt) {
-            array_push($kecamatan, $dt['nama_kecamatan']);
-            array_push($jumlah, $dt['total_banjir']);
-        }
-        $data['kecamatan'] = json_encode($kecamatan);
-        $data['total'] = json_encode($jumlah);
         view('layouts/_head');
-        view('dashboard', $data);
+        view('laporan');
         view('layouts/_foot');
     }
 
@@ -41,7 +28,7 @@ class Laporan
         $pdf = new \FPDF();
         $pdf->AddPage();
         $pdf->SetFont('Arial', 'B', 16);
-        $pdf->Image(FCPATH . 'assets/images/kop.png', -2, -3, 220);
+        // $pdf->Image(FCPATH . 'assets/images/kop.png', -2, -3, 220);
         $pdf->Cell(40, 10, 'Hello World!');
         $pdf->Output();
     }

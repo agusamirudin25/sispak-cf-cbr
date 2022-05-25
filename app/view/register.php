@@ -24,51 +24,6 @@
                 <!-- content @s -->
                 <div class="nk-content ">
                     <div class="nk-split nk-split-page nk-split-md">
-                        <div class="nk-split-content nk-block-area nk-block-area-column nk-auth-container bg-white">
-                            <div class="absolute-top-right d-lg-none p-3 p-sm-5">
-                                <a href="#" class="toggle btn-white btn btn-icon btn-light" data-target="athPromo"><em class="icon ni ni-info"></em></a>
-                            </div>
-                            <div class="nk-block nk-block-middle nk-auth-body">
-                                <div class="nk-block-head">
-                                    <div class="nk-block-head-content">
-                                        <h5 class="nk-block-title">Login</h5>
-                                        <div class="nk-block-des">
-                                            <p>Silakan masukan email dan password kamu untuk menggunakan aplikasi ini.</p>
-                                        </div>
-                                    </div>
-                                </div><!-- .nk-block-head -->
-                                <form method="post" id="formLogin" autocomplete="off">
-                                    <div class="form-group">
-                                        <div class="form-label-group">
-                                            <label class="form-label" for="default-01">Email</label>
-                                        </div>
-                                        <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Masukan email kamu">
-                                    </div><!-- .foem-group -->
-                                    <div class="form-group">
-                                        <div class="form-label-group">
-                                            <label class="form-label" for="password">Password</label>
-                                        </div>
-                                        <div class="form-control-wrap">
-                                            <a tabindex="-1" href="#" class="form-icon form-icon-right passcode-switch" data-target="password">
-                                                <em class="passcode-icon icon-show icon ni ni-eye"></em>
-                                                <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
-                                            </a>
-                                            <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Masukan password kamu">
-                                        </div>
-                                    </div><!-- .foem-group -->
-                                    <div class="form-group">
-                                        <button class="btn btn-lg btn-primary btn-block">Login</button>
-                                    </div>
-                                </form><!-- form -->
-                                <div class="form-note-s2 pt-4"> Belum punya akun? <a href="<?= base_url('auth/register') ?>">Buat Akun</a>
-                                </div>
-                            </div><!-- .nk-block -->
-                            <div class="nk-block nk-auth-footer">
-                                <div class="mt-3">
-                                    <p>&copy; <?= date('Y') ?> Sistem Pakar Mendiagnosa Kerusakan Pada Mesin Mobil Matic.</p>
-                                </div>
-                            </div><!-- .nk-block -->
-                        </div><!-- .nk-split-content -->
                         <div class="nk-split-content nk-split-stretch bg-lighter d-flex toggle-break-lg toggle-slide toggle-slide-right" data-content="athPromo" data-toggle-screen="lg" data-toggle-overlay="true">
                             <div class="slider-wrap w-100 w-max-550px p-3 p-sm-5 m-auto">
                                 <div class="slider-init" data-slick='{"dots":false, "arrows":false}'>
@@ -85,6 +40,55 @@
                                 </div><!-- .slider-init -->
                             </div><!-- .slider-wrap -->
                         </div><!-- .nk-split-content -->
+                        <div class="nk-split-content nk-block-area nk-block-area-column nk-auth-container bg-white">
+                            <div class="absolute-top-right d-lg-none p-3 p-sm-5">
+                                <a href="#" class="toggle btn-white btn btn-icon btn-light" data-target="athPromo"><em class="icon ni ni-info"></em></a>
+                            </div>
+                            <div class="nk-block nk-block-middle nk-auth-body">
+                                <div class="nk-block-head">
+                                    <div class="nk-block-head-content">
+                                        <h5 class="nk-block-title">Registrasi Akun</h5>
+                                    </div>
+                                </div><!-- .nk-block-head -->
+                                <form method="post" id="formRegister" autocomplete="off">
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <label class="form-label" for="nama_lengkap">Nama Lengkap</label>
+                                        </div>
+                                        <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control form-control-lg" placeholder="Masukan nama lengkap kamu">
+                                    </div><!-- .foem-group -->
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <label class="form-label" for="email">Email</label>
+                                        </div>
+                                        <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Masukan email kamu">
+                                    </div><!-- .foem-group -->
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <label class="form-label" for="password">Password</label>
+                                        </div>
+                                        <div class="form-control-wrap">
+                                            <a tabindex="-1" href="#" class="form-icon form-icon-right passcode-switch" data-target="password">
+                                                <em class="passcode-icon icon-show icon ni ni-eye"></em>
+                                                <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
+                                            </a>
+                                            <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Masukan password kamu">
+                                        </div>
+                                    </div><!-- .foem-group -->
+                                    <div class="form-group">
+                                        <button class="btn btn-lg btn-success btn-block">Registrasi</button>
+                                    </div>
+                                </form><!-- form -->
+                                <div class="form-note-s2 pt-4"> Sudah punya akun? <a href="<?= base_url('auth') ?>">Login</a>
+                                </div>
+                            </div><!-- .nk-block -->
+                            <div class="nk-block nk-auth-footer">
+                                <div class="mt-3">
+                                    <p>&copy; <?= date('Y') ?> Sistem Pakar Mendiagnosa Kerusakan Pada Mesin Mobil Matic.</p>
+                                </div>
+                            </div><!-- .nk-block -->
+                        </div><!-- .nk-split-content -->
+                       
                     </div><!-- .nk-split -->
                 </div>
                 <!-- wrap @e -->
@@ -100,10 +104,16 @@
     <script src="<?= asset('assets/js/helpers.js?ver=23') ?>"></script>
     <script>
         const BASE_URL = "<?= base_url() ?>";
-        $('#formLogin').submit(function(e) {
+        $('#formRegister').submit(function(e) {
             e.preventDefault();
+            let nama = $('#nama_lengkap').val();
             let user = $('#email').val();
             let pass = $('#password').val();
+            if (nama.length == 0) {
+                error_alert('Error', 'Nama tidak boleh kosong')
+                $("#nama").focus();
+                return false;
+            }
             if (user.length == 0) {
                 error_alert('Error', 'Email tidak boleh kosong')
                 $("#email").focus();
@@ -115,7 +125,7 @@
                 return false;
             }
             $.ajax({
-                url: '<?= url() ?>Auth/cek_login',
+                url: '<?= url() ?>Auth/proses_register',
                 type: 'POST',
                 data: new FormData(this),
                 processData: false,
@@ -124,7 +134,7 @@
                 async: false,
                 dataType: "json",
                 success: function(data) {
-                    if (data.login_status == 1) {
+                    if (data.status == 1) {
                         success_alert("Berhasil", data.msg, BASE_URL + data.page);
                     } else {
                         error_alert("Gagal", data.msg);
