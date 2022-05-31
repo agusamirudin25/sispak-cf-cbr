@@ -137,6 +137,20 @@
                                         <span class="nk-menu-text">Logout</span>
                                     </a>
                                 </li>
+                                <li class="nk-menu-item">
+                                    <a href="<?= base_url('Dashboard/bantuan') ?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-book-fill"></em></span>
+                                        <span class="nk-menu-text">Bantuan</span>
+                                    </a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a href="<?= base_url('Dashboard/tentang') ?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon">
+                                            <em class="icon ni ni-template-fill"></em>
+                                        </span>
+                                        <span class="nk-menu-text">Tentang</span>
+                                    </a>
+                                </li>
                             </ul><!-- .nk-menu -->
                         </div><!-- .nk-sidebar-menu -->
                     </div><!-- .nk-sidebar-content -->
