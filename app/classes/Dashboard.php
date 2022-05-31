@@ -26,4 +26,18 @@ class Dashboard
         view('layouts/_foot');
     }
 
+    public function bantuan()
+    {
+        view('layouts/_head');
+        view('bantuan');
+        view('layouts/_foot');
+    }
+
+    public function tentang()
+    {
+        view('layouts/_head');
+        view('tentang');
+        view('layouts/_foot');
+    }
+
 }
