@@ -26,7 +26,7 @@ class Konsultasi
         $type = session_get('type');
         $emailPengguna = session_get('emailPengguna');
         if ($type == 3) {
-            $data['konsultasi'] = $this->_db->other_query("SELECT * FROM tb_konsultasi WHERE email = '$emailPengguna' ORDER BY created_at DESC", 2);
+            $data['konsultasi'] = $this->_db->other_query("SELECT tb_konsultasi.*, tb_pengguna.nama_lengkap FROM tb_konsultasi JOIN tb_pengguna ON tb_konsultasi.email = tb_pengguna.email WHERE tb_konsultasi.email = '$emailPengguna' ORDER BY created_at DESC", 2);
         } else {
             $data['konsultasi'] = $this->_db->other_query("SELECT tb_konsultasi.*, tb_pengguna.nama_lengkap FROM tb_konsultasi JOIN tb_pengguna ON tb_konsultasi.email = tb_pengguna.email ORDER BY created_at DESC", 2);
         }

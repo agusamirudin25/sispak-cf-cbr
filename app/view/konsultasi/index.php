@@ -19,9 +19,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Pertanyaan</th>
-                                        <?php if(session_get('type') != 3) : ?>
                                         <th>Nama</th>
-                                        <?php endif; ?>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -31,9 +29,7 @@
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $row['pertanyaan'] ?></td>
-                                        <?php if(session_get('type') != 3) : ?>
-                                            <td><?= $row['nama_lengkap'] ?></td>
-                                        <?php endif; ?>
+                                        <td><?= $row['nama_lengkap'] ?></td>
                                         <td>
                                             <a href="<?= base_url('Konsultasi/detailKonsultasi/' . $row['id']) ?>" class="btn btn-warning">Lihat</a>
                                         </td>
