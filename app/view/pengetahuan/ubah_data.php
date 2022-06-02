@@ -18,7 +18,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="gejala">Gejala</label>
                                             <div class="form-control-wrap">
-                                                <select class="form-control" name="gejala" id="gejala">
+                                                <select class="form-control" name="gejala" id="gejala" required>
                                                     <option value="">Pilih Gejala</option>
                                                     <?php foreach ($gejala as $g) : ?>
                                                         <option <?= $g['kode_gejala'] == $pengetahuan->kode_gejala ? 'selected' : null ?> value="<?= $g['kode_gejala'] ?>"><?= $g['gejala'] ?></option>
@@ -31,7 +31,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="kerusakan">Kerusakan</label>
                                             <div class="form-control-wrap">
-                                                <select class="form-control" name="kerusakan" id="kerusakan">
+                                                <select class="form-control" name="kerusakan" id="kerusakan" required>
                                                     <option value="">Pilih Kerusakan</option>
                                                     <?php foreach ($kerusakan as $row) : ?>
                                                         <option <?= $row['kode_kerusakan'] == $pengetahuan->kode_kerusakan ? 'selected' : null ?> value="<?= $row['kode_kerusakan'] ?>"><?= $row['kerusakan'] ?></option>
@@ -72,6 +72,18 @@
     $(document).ready(function() {
         $('#formUbah').submit(function(e) {
             e.preventDefault();
+            var gejala = $('#gejala').val();
+            var kerusakan = $('#kerusakan').val();
+            var bobot = $('#bobot').val();
+            // validasi form
+            if(gejala == '' || kerusakan == '' || bobot == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Semua form harus diisi!'
+                });
+                return false;
+            }
             var data = new FormData(this);
             $.ajax({
                 url: '<?= url(); ?>Pengetahuan/prosesUbahPengetahuan',

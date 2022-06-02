@@ -66,6 +66,19 @@
     $(document).ready(function() {
         $('#formTambah').submit(function(e) {
             e.preventDefault();
+            var kode_kerusakan = $('#kode_kerusakan').val();
+            var kerusakan = $('#kerusakan').val();
+            var solusi = $('#solusi').val();
+            var alat = $('#alat').val();
+            // validasi form
+            if(kode_kerusakan == '' || kerusakan == '' || solusi == '' || alat == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Semua form harus diisi!'
+                });
+                return false;
+            }
             var data = new FormData(this);
             $.ajax({
                 url: '<?= url(); ?>Kerusakan/prosesTambahKerusakan',

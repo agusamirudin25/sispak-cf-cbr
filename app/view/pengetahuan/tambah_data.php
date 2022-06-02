@@ -17,7 +17,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="gejala">Gejala</label>
                                             <div class="form-control-wrap">
-                                                <select class="form-control" name="gejala" id="gejala">
+                                                <select class="form-control" name="gejala" id="gejala" required>
                                                     <option value="">Pilih Gejala</option>
                                                     <?php foreach ($gejala as $g) : ?>
                                                         <option value="<?= $g['kode_gejala'] ?>"><?= $g['gejala'] ?></option>
@@ -30,7 +30,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="kerusakan">Kerusakan</label>
                                             <div class="form-control-wrap">
-                                                <select class="form-control" name="kerusakan" id="kerusakan">
+                                                <select class="form-control" name="kerusakan" id="kerusakan" required>
                                                     <option value="">Pilih Kerusakan</option>
                                                     <?php foreach ($kerusakan as $row) : ?>
                                                         <option value="<?= $row['kode_kerusakan'] ?>"><?= $row['kerusakan'] ?></option>
@@ -43,7 +43,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="bobot">Nilai Pakar</label>
                                             <div class="form-control-wrap">
-                                                <select id="bobot" class="form-control" name="bobot">
+                                                <select id="bobot" class="form-control" name="bobot" required>
                                                 <?php foreach ($bobot as $row) : ?>
                                                     <option value="<?= $row['nilai'] ?>"><?= $row['keterangan'] ?></option>
                                                 <?php endforeach; ?>
@@ -73,6 +73,18 @@
     $(document).ready(function() {
         $('#formTambah').submit(function(e) {
             e.preventDefault();
+            var gejala = $('#gejala').val();
+            var kerusakan = $('#kerusakan').val();
+            var bobot = $('#bobot').val();
+            // validasi form
+            if(gejala == '' || kerusakan == '' || bobot == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Semua form harus diisi!'
+                });
+                return false;
+            }
             var data = new FormData(this);
             $.ajax({
                 url: '<?= url(); ?>Pengetahuan/prosesTambahPengetahuan',

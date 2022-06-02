@@ -69,12 +69,6 @@
                                         <span class="nk-menu-text">Pengetahuan</span>
                                     </a>
                                 </li>
-                                <li class="nk-menu-item">
-                                    <a href="<?= base_url('Diagnosis') ?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-cc-alt"></em></span>
-                                        <span class="nk-menu-text">Diagnosis</span>
-                                    </a>
-                                </li>
                                
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Laporan') ?>" class="nk-menu-link">

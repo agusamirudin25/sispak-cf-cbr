@@ -71,6 +71,18 @@
     $(document).ready(function() {
         $('#formUbah').submit(function(e) {
             e.preventDefault();
+            var nama_lengkap = $('#nama_lengkap').val();
+            var email = $('#email').val();
+            var tipe = $('#tipe').val();
+            // validate input
+            if(nama_lengkap == '' || email == '' || tipe == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Semua form harus diisi!'
+                });
+                return false;
+            }
             var data = new FormData(this);
             $.ajax({
                 url: '<?= url(); ?>Pengguna/prosesUbahPengguna',

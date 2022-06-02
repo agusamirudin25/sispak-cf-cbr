@@ -51,6 +51,18 @@
     $(document).ready(function() {
         $('#formTambah').submit(function(e) {
             e.preventDefault();
+            var kode_gejala = $('#kode_gejala').val();
+            var gejala = $('#gejala').val();
+          
+            // validate input
+            if(kode_gejala == '' || gejala == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Semua form harus diisi!'
+                });
+                return false;
+            }
             var data = new FormData(this);
             $.ajax({
                 url: '<?= url(); ?>Gejala/prosesTambahGejala',
