@@ -75,12 +75,7 @@
                                         <span class="nk-menu-text">Diagnosis</span>
                                     </a>
                                 </li>
-                                <li class="nk-menu-item">
-                                    <a href="<?= base_url('Konsultasi') ?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
-                                        <span class="nk-menu-text">Konsultasi</span>
-                                    </a>
-                                </li>
+                               
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Laporan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-reports-alt"></em></span>
