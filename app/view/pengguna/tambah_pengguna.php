@@ -72,6 +72,19 @@
     $(document).ready(function() {
         $('#formTambah').submit(function(e) {
             e.preventDefault();
+            var nama_lengkap = $('#nama_lengkap').val();
+            var email = $('#email').val();
+            var tipe = $('#tipe').val();
+            var password = $('#password').val();
+            // validate input
+            if(nama_lengkap == '' || email == '' || tipe == '' || password == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Semua form harus diisi!'
+                });
+                return false;
+            }
             var data = new FormData(this);
             $.ajax({
                 url: '<?= url(); ?>Pengguna/prosesTambahPengguna',
