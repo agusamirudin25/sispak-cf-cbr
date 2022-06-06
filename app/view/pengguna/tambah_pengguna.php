@@ -36,7 +36,7 @@
                                                 <select class="form-control form-select" id="tipe" name="tipe" data-placeholder="Pilih Tipe" required>
                                                     <option label="empty" value=""></option>
                                                     <?php foreach($role as $row) : ?>
-                                                        <option value="<?= $row['id'] ?>"><?= $row['role'] ?></option>
+                                                        <option value="<?= $row['id_role'] ?>"><?= $row['role'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>

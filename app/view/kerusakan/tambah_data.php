@@ -11,7 +11,7 @@
                     </div>
                     <div class="card card-bordered">
                         <div class="card-inner">
-                            <form class="form-validate is-alter" autocomplete="off" id="formTambah">
+                            <form class="form-validate is-alter" autocomplete="off" id="formTambah" enctype="multipart/form-data">
                                 <div class="row g-gs">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -45,6 +45,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="gambar">Gambar</label>
+                                            <div class="form-control-wrap">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="gambar" name="gambar" required>
+                                                    <label class="custom-file-label" for="gambar">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-lg btn-primary">Simpan</button>
@@ -71,7 +82,7 @@
             var solusi = $('#solusi').val();
             var alat = $('#alat').val();
             // validasi form
-            if(kode_kerusakan == '' || kerusakan == '' || solusi == '' || alat == '') {
+            if (kode_kerusakan == '' || kerusakan == '' || solusi == '' || alat == '') {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',

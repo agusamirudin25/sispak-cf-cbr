@@ -29,7 +29,7 @@
                                             <td><?= $no++ ?></td>
                                             <td><?= $value['gejala'] ?></td>
                                             <td><?= $value['bobot'] ?></td>
-                                            <td><?= $input[$value['kode_gejala']] ?></td>
+                                            <td><?= $input[$value['id_gejala']] ?></td>
                                         </tr>
                                     <?php endforeach; ?>
 

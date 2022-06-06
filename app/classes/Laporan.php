@@ -28,7 +28,7 @@ class Laporan
         FROM
             tb_diagnosis
             JOIN tb_pengguna ON tb_diagnosis.email = tb_pengguna.email
-            JOIN tb_kerusakan ON tb_diagnosis.kerusakan = tb_kerusakan.kode_kerusakan";
+            JOIN tb_kerusakan ON tb_diagnosis.kerusakan = tb_kerusakan.id_kerusakan";
         if($tahun != null && $bulan != null) {
             $query .= " WHERE YEAR(tb_diagnosis.created_at) = $tahun";
             $query .= " AND MONTH(tb_diagnosis.created_at) = $bulan";
@@ -52,7 +52,7 @@ class Laporan
         FROM
             tb_diagnosis
             JOIN tb_pengguna ON tb_diagnosis.email = tb_pengguna.email
-            JOIN tb_kerusakan ON tb_diagnosis.kerusakan = tb_kerusakan.kode_kerusakan";
+            JOIN tb_kerusakan ON tb_diagnosis.kerusakan = tb_kerusakan.id_kerusakan";
         if($tahun != null && $bulan != null) {
             $query .= " WHERE YEAR(tb_diagnosis.created_at) = $tahun";
             $query .= " AND MONTH(tb_diagnosis.created_at) = $bulan";

@@ -51,7 +51,7 @@ class Konsultasi
         // query insert
         $insert = $this->_db->insert($sql);
         // get last data
-        $lastData = $this->_db->other_query("SELECT * FROM tb_konsultasi WHERE email = '$email' ORDER BY id DESC LIMIT 1", 2);
+        $lastData = $this->_db->other_query("SELECT * FROM tb_konsultasi WHERE email = '$email' ORDER BY id_konsultasi DESC LIMIT 1", 2);
         if ($insert) {
             $res['status'] = 1;
             $res['msg'] = "Sukses kirim";
@@ -66,7 +66,7 @@ class Konsultasi
     public function detailKonsultasi($id)
     {
         // select data
-        $data['konsultasi'] = $this->_db->other_query("SELECT tb_konsultasi.*, tb_pengguna.nama_lengkap FROM tb_konsultasi JOIN tb_pengguna ON tb_konsultasi.email = tb_pengguna.email WHERE id = '$id'");
+        $data['konsultasi'] = $this->_db->other_query("SELECT tb_konsultasi.*, tb_pengguna.nama_lengkap FROM tb_konsultasi JOIN tb_pengguna ON tb_konsultasi.email = tb_pengguna.email WHERE id_konsultasi = '$id'");
         // select jawaban
         $data['jawaban'] = $this->_db->other_query("SELECT * FROM tb_jawaban_konsultasi WHERE id_konsultasi = '$id' ORDER BY created_at", 2);
         $data['id_konsultasi'] = $id;

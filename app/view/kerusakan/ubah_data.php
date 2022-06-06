@@ -11,13 +11,13 @@
                     </div>
                     <div class="card card-bordered">
                         <div class="card-inner">
-                            <form class="form-validate is-alter" autocomplete="off" id="formUbah">
+                            <form class="form-validate is-alter" autocomplete="off" id="formUbah" enctype="multipart/form-data">
                                 <div class="row g-gs">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="form-label" for="kode_kerusakan">Kode Kerusakan</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" placeholder="Kode Kerusakan" value="<?= $kerusakan->kode_kerusakan ?>" readonly id="kode_kerusakan" name="kode_kerusakan" required>
+                                                <input type="text" class="form-control" placeholder="Kode Kerusakan" value="<?= $kerusakan->id_kerusakan ?>" readonly id="kode_kerusakan" name="kode_kerusakan" required>
                                             </div>
                                         </div>
                                     </div>
@@ -45,6 +45,27 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="gambar">Gambar</label>
+                                            <div class="form-control-wrap">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                                    <label class="custom-file-label" for="gambar">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php if($kerusakan->gambar) : ?>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="gambar">Gambar Sebelumnya</label>
+                                            <div class="form-control-wrap">
+                                                <img src="<?= base_url('assets/gambar/'.$kerusakan->gambar) ?>" width="100%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php endif; ?>
                                                                        
                                     <div class="col-md-12">
                                         <div class="form-group">

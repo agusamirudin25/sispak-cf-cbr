@@ -17,7 +17,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="kode_gejala">Kode Gejala</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control" placeholder="Kode Gejala" value="<?= $gejala->kode_gejala ?>" readonly id="kode_gejala" name="kode_gejala" required>
+                                                <input type="text" class="form-control" placeholder="Kode Gejala" value="<?= $gejala->id_gejala ?>" readonly id="kode_gejala" name="kode_gejala" required>
                                             </div>
                                         </div>
                                     </div>

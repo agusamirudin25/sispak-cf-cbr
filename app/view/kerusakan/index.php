@@ -20,6 +20,7 @@
                                         <th>Kerusakan</th>
                                         <th>Solusi</th>
                                         <th>Alat</th>
+                                        <th>Gambar</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -28,13 +29,16 @@
                                     <?php foreach($kerusakan as $row): ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $row['kode_kerusakan'] ?></td>
+                                        <td><?= $row['id_kerusakan'] ?></td>
                                         <td><?= $row['kerusakan'] ?></td>
                                         <td style="white-space: normal;"><?= $row['solusi'] ?></td>
                                         <td style="white-space: normal;"><?= $row['alat'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('Kerusakan/ubahKerusakan/' . $row['kode_kerusakan']) ?>" class="btn btn-warning">Edit</a>
-                                            <a href="#" onclick="delete_data('<?= $row['kode_kerusakan'] ?>', 'Kerusakan/hapusKerusakan')" role="button" class="btn btn-danger">Delete</a>
+                                            <a href="<?= asset("assets/gambar") . "/" . $row['gambar'] ?>" target="_blank" class="btn btn-icon btn-sm btn-primary"><em class="icon ni ni-camera"></em></a>
+                                        </td>
+                                        <td>
+                                            <a href="<?= base_url('Kerusakan/ubahKerusakan/' . $row['id_kerusakan']) ?>" class="btn btn-warning">Edit</a>
+                                            <a href="#" onclick="delete_data('<?= $row['id_kerusakan'] ?>', 'Kerusakan/hapusKerusakan')" role="button" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

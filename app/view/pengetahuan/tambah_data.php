@@ -20,7 +20,7 @@
                                                 <select class="form-control" name="gejala" id="gejala" required>
                                                     <option value="">Pilih Gejala</option>
                                                     <?php foreach ($gejala as $g) : ?>
-                                                        <option value="<?= $g['kode_gejala'] ?>"><?= $g['gejala'] ?></option>
+                                                        <option value="<?= $g['id_gejala'] ?>"><?= $g['gejala'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -33,7 +33,7 @@
                                                 <select class="form-control" name="kerusakan" id="kerusakan" required>
                                                     <option value="">Pilih Kerusakan</option>
                                                     <?php foreach ($kerusakan as $row) : ?>
-                                                        <option value="<?= $row['kode_kerusakan'] ?>"><?= $row['kerusakan'] ?></option>
+                                                        <option value="<?= $row['id_kerusakan'] ?>"><?= $row['kerusakan'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>

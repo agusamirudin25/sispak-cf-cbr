@@ -30,12 +30,20 @@ class Gejala
         view('layouts/_foot');
     }
 
+    public function cariData($tabel, $field)
+    {
+        $data['gejala'] = $this->_db->other_query("SELECT * FROM {$tabel} WHERE {$field} LIKE '%" . $_POST['cari'] . "%'", 2);
+        view('layouts/_head');
+        view('gejala/index', $data);
+        view('layouts/_foot');
+    }
+
     public function tambahGejala()
     {
         $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Mekanik';
-        $kode_terakhir = $this->_db->get_last_param('tb_gejala', 'kode_gejala');
+        $kode_terakhir = $this->_db->get_last_param('tb_gejala', 'id_gejala');
         if ($kode_terakhir) {
-            $nilai_kode = substr($kode_terakhir['kode_gejala'], 1);
+            $nilai_kode = substr($kode_terakhir['id_gejala'], 1);
             $kode = (int) $nilai_kode;
             $kode = $kode + 1;
             $kode_otomatis = "G" . str_pad($kode, 2, "0", STR_PAD_LEFT);
@@ -54,7 +62,7 @@ class Gejala
         $nama_gejala = $input['gejala'];
 
         // query insert
-        $insert = $this->_db->insert("INSERT INTO tb_gejala(kode_gejala, gejala) values ('$kode_gejala', '$nama_gejala')");
+        $insert = $this->_db->insert("INSERT INTO tb_gejala(id_gejala, gejala) values ('$kode_gejala', '$nama_gejala')");
         if ($insert) {
             $res['status'] = 1;
             $res['msg'] = "Data Gejala berhasil ditambahkan";
@@ -68,7 +76,7 @@ class Gejala
     public function ubahGejala($kode)
     {
         $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Mekanik';
-        $data['gejala'] = $this->_db->get("SELECT * FROM tb_gejala WHERE kode_gejala = '$kode'");
+        $data['gejala'] = $this->_db->get("SELECT * FROM tb_gejala WHERE id_gejala = '$kode'");
         view('layouts/_head');
         view('gejala/ubah_data', $data);
         view('layouts/_foot');
@@ -79,7 +87,7 @@ class Gejala
         $kode_gejala = $input['kode_gejala'];
         $nama_gejala = $input['gejala'];
         // query update
-        $update = $this->_db->edit("UPDATE tb_gejala SET gejala = '$nama_gejala' WHERE kode_gejala = '$kode_gejala'");
+        $update = $this->_db->edit("UPDATE tb_gejala SET gejala = '$nama_gejala' WHERE id_gejala = '$kode_gejala'");
         if ($update) {
             $res['status'] = 1;
             $res['msg'] = "Data Gejala berhasil diubah";
@@ -94,7 +102,7 @@ class Gejala
     {
         $input = post();
         $id = $input['id'];
-        $delete = $this->_db->delete('tb_gejala', 'kode_gejala', "'" . $id . "'");
+        $delete = $this->_db->delete('tb_gejala', 'id_gejala', "'" . $id . "'");
         if ($delete) {
             $res['status'] = 1;
             $res['msg'] = "Data berhasil dihapus";
