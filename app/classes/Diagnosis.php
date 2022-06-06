@@ -77,7 +77,7 @@ class Diagnosis
 
         // perhitungan CF
         // get data tb_pengetahuan where kode_kerusakan = $kode_kerusakan
-        $sql = "SELECT tb_pengetahuan.*, tb_kerusakan.kerusakan FROM tb_pengetahuan JOIN tb_kerusakan ON tb_pengetahuan.kode_kerusakan = tb_kerusakan.kode_kerusakan WHERE tb_pengetahuan.kode_kerusakan = '".$kode_kerusakan."'";
+        $sql = "SELECT tb_pengetahuan.*, tb_kerusakan.kerusakan FROM tb_pengetahuan JOIN tb_kerusakan ON tb_pengetahuan.kode_kerusakan = tb_kerusakan.id_kerusakan WHERE tb_pengetahuan.kode_kerusakan = '".$kode_kerusakan."'";
         $data_pengetahuan = $this->_db->other_query($sql, 2);
         // perkalian nilai pakar dengan nilai bobot user
         $keterangan_perkalian_cf = [];
@@ -145,8 +145,8 @@ class Diagnosis
         $persentase_hasil_cbr = number_format($hasil_cbr * 100, 0, '.', '');
         
         $data['input'] = $data;
-        $data['gejala'] = $this->_db->other_query("SELECT tb_gejala.kode_gejala, tb_gejala.gejala, tb_pengetahuan.bobot FROM tb_gejala JOIN tb_pengetahuan ON tb_gejala.kode_gejala = tb_pengetahuan.kode_gejala WHERE tb_gejala.kode_gejala IN ($where_in) AND tb_pengetahuan.kode_kerusakan = '$kode_kerusakan'", 2);
-        $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan WHERE kode_kerusakan = '$kode_kerusakan'", 1);
+        $data['gejala'] = $this->_db->other_query("SELECT tb_gejala.id_gejala, tb_gejala.gejala, tb_pengetahuan.bobot FROM tb_gejala JOIN tb_pengetahuan ON tb_gejala.id_gejala = tb_pengetahuan.kode_gejala WHERE tb_gejala.id_gejala IN ($where_in) AND tb_pengetahuan.kode_kerusakan = '$kode_kerusakan'", 2);
+        $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan WHERE id_kerusakan = '$kode_kerusakan'", 1);
         $data['nilai_perkalian_cf'] = $hasil_cf;
         $data['nilai_cf_combine'] = $hasil_cf_combine;
         $data['hasil_cf'] = $nilai_akhir_cf;

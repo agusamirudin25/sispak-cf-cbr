@@ -31,8 +31,8 @@
                                         <td><?= $row['kerusakan'] ?></td>
                                         <td><?= $row['bobot'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('Pengetahuan/ubahPengetahuan/' . $row['id']) ?>" class="btn btn-warning">Edit</a>
-                                            <a href="#" onclick="delete_data('<?= $row['id'] ?>', 'Pengetahuan/hapusPengetahuan')" role="button" class="btn btn-danger">Delete</a>
+                                            <a href="<?= base_url('Pengetahuan/ubahPengetahuan/' . $row['id_pengetahuan']) ?>" class="btn btn-warning">Edit</a>
+                                            <a href="#" onclick="delete_data('<?= $row['id_pengetahuan'] ?>', 'Pengetahuan/hapusPengetahuan')" role="button" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

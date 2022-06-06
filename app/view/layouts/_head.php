@@ -23,11 +23,11 @@
         <!-- main @s -->
         <div class="nk-main ">
             <!-- sidebar @s -->
-            <div class="nk-sidebar nk-sidebar-fixed is-dark " data-content="sidebarMenu">
+            <div class="nk-sidebar nk-sidebar-fixed is-light " data-content="sidebarMenu">
                 <div class="nk-sidebar-element nk-sidebar-head">
                     <div class="nk-sidebar-brand">
                         <a href="<?= base_url('/') ?>" class="logo-link nk-sidebar-logo">
-                            <h3 class="text-white">SISPAK</h3>
+                            <img class="logo-dark logo-img" src="<?= asset('assets/images/logo-sispak.png') ?>" alt="logo">
                         </a>
                     </div>
                     <div class="nk-menu-trigger mr-n2">

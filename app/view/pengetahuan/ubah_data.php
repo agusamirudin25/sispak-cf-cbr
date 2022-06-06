@@ -12,7 +12,7 @@
                     <div class="card card-bordered">
                         <div class="card-inner">
                             <form class="form-validate is-alter" autocomplete="off" id="formUbah">
-                                <input type="hidden" name="id" value="<?= $pengetahuan->id ?>">
+                                <input type="hidden" name="id" value="<?= $pengetahuan->id_pengetahuan ?>">
                                 <div class="row g-gs">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -21,7 +21,7 @@
                                                 <select class="form-control" name="gejala" id="gejala" required>
                                                     <option value="">Pilih Gejala</option>
                                                     <?php foreach ($gejala as $g) : ?>
-                                                        <option <?= $g['kode_gejala'] == $pengetahuan->kode_gejala ? 'selected' : null ?> value="<?= $g['kode_gejala'] ?>"><?= $g['gejala'] ?></option>
+                                                        <option <?= $g['id_gejala'] == $pengetahuan->kode_gejala ? 'selected' : null ?> value="<?= $g['id_gejala'] ?>"><?= $g['gejala'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -34,7 +34,7 @@
                                                 <select class="form-control" name="kerusakan" id="kerusakan" required>
                                                     <option value="">Pilih Kerusakan</option>
                                                     <?php foreach ($kerusakan as $row) : ?>
-                                                        <option <?= $row['kode_kerusakan'] == $pengetahuan->kode_kerusakan ? 'selected' : null ?> value="<?= $row['kode_kerusakan'] ?>"><?= $row['kerusakan'] ?></option>
+                                                        <option <?= $row['id_kerusakan'] == $pengetahuan->kode_kerusakan ? 'selected' : null ?> value="<?= $row['id_kerusakan'] ?>"><?= $row['kerusakan'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>

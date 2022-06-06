@@ -25,8 +25,8 @@ class Pengguna
 
     public function index()
     {
-        $data['role'] = $this->_db->other_query('SELECT id, `role` FROM tb_role', 2);
-        $data['pengguna'] = $this->_db->other_query("SELECT nama_lengkap, email, tipe, `role` FROM tb_pengguna JOIN tb_role ON tb_pengguna.tipe = tb_role.id", 2);
+        $data['role'] = $this->_db->other_query('SELECT id_role, `role` FROM tb_role', 2);
+        $data['pengguna'] = $this->_db->other_query("SELECT nama_lengkap, email, tipe, `role` FROM tb_pengguna JOIN tb_role ON tb_pengguna.tipe = tb_role.id_role", 2);
         view('layouts/_head');
         view('pengguna/index', $data);
         view('layouts/_foot');
@@ -34,7 +34,7 @@ class Pengguna
 
     public function tambahPengguna()
     {
-        $data['role'] = $this->_db->other_query('SELECT id, `role` FROM tb_role', 2);
+        $data['role'] = $this->_db->other_query('SELECT id_role, `role` FROM tb_role', 2);
         view('layouts/_head');
         view('pengguna/tambah_pengguna', $data);
         view('layouts/_foot');
@@ -67,8 +67,8 @@ class Pengguna
     }
     public function ubahPengguna($email)
     {
-        $data['role'] = $this->_db->other_query('SELECT id, `role` FROM tb_role', 2);
-        $data['pengguna'] = $this->_db->other_query("SELECT tb_pengguna.*, tb_role.role FROM tb_pengguna JOIN tb_role ON tb_pengguna.tipe = tb_role.id WHERE email = '$email'");
+        $data['role'] = $this->_db->other_query('SELECT id_role, `role` FROM tb_role', 2);
+        $data['pengguna'] = $this->_db->other_query("SELECT tb_pengguna.*, tb_role.role FROM tb_pengguna JOIN tb_role ON tb_pengguna.tipe = tb_role.id_role WHERE email = '$email'");
         view('layouts/_head');
         view('pengguna/ubah_pengguna', $data);
         view('layouts/_foot');

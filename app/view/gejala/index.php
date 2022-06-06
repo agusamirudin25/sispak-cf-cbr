@@ -26,11 +26,11 @@
                                     <?php foreach($gejala as $row): ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $row['kode_gejala'] ?></td>
+                                        <td><?= $row['id_gejala'] ?></td>
                                         <td><?= $row['gejala'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('Gejala/ubahGejala/' . $row['kode_gejala']) ?>" class="btn btn-warning">Edit</a>
-                                            <a href="#" onclick="delete_data('<?= $row['kode_gejala'] ?>', 'Gejala/hapusGejala')" role="button" class="btn btn-danger">Delete</a>
+                                            <a href="<?= base_url('Gejala/ubahGejala/' . $row['id_gejala']) ?>" class="btn btn-warning">Edit</a>
+                                            <a href="#" onclick="delete_data('<?= $row['id_gejala'] ?>', 'Gejala/hapusGejala')" role="button" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

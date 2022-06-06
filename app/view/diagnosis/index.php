@@ -18,14 +18,14 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" name="gejala[]" value="<?= $row['kode_gejala'] ?>" class="custom-control-input form-control" id="gejala<?= $row['kode_gejala'] ?>" onchange="showHide(this)">
-                                                    <label class="custom-control-label" for="gejala<?= $row['kode_gejala'] ?>"><?= $row['gejala'] ?></label>
+                                                    <input type="checkbox" name="gejala[]" value="<?= $row['id_gejala'] ?>" class="custom-control-input form-control" id="gejala<?= $row['id_gejala'] ?>" onchange="showHide(this)">
+                                                    <label class="custom-control-label" for="gejala<?= $row['id_gejala'] ?>"><?= $row['gejala'] ?></label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <select id="bobot<?= $row['kode_gejala'] ?>" class="form-control bobot" style="display: none;">
+                                                <select id="bobot<?= $row['id_gejala'] ?>" class="form-control bobot" style="display: none;">
                                                 <?php foreach ($bobot as $row) : ?>
                                                     <option value="<?= $row['nilai'] ?>"><?= $row['keterangan'] ?></option>
                                                 <?php endforeach; ?>
