@@ -56,6 +56,14 @@ class Kerusakan
         $nama_kerusakan = $input['kerusakan'];
         $solusi = $input['solusi'];
         $alat = $input['alat'];
+        // cek apakah nama kerusakan sudah ada
+        $cek_kerusakan = $this->_db->other_query("SELECT * FROM tb_kerusakan WHERE kerusakan = '$nama_kerusakan'", 1);
+        if ($cek_kerusakan) {
+            $res['status'] = 0;
+            $res['msg'] = "Data Kerusakan gagal ditambahkan. Data Kerusakan sudah ada.";
+            echo json_encode($res);
+            die;
+        }
 
         // upload file gambar
         $gambar = $_FILES['gambar']['name'];
@@ -93,6 +101,14 @@ class Kerusakan
         $nama_kerusakan = $input['kerusakan'];
         $solusi = $input['solusi'];
         $alat = $input['alat'];
+
+        $cek_kerusakan = $this->_db->other_query("SELECT * FROM tb_kerusakan WHERE kerusakan = '$nama_kerusakan' AND id_kerusakan != '$kode_kerusakan' ", 1);
+        if ($cek_kerusakan) {
+            $res['status'] = 0;
+            $res['msg'] = "Data Kerusakan gagal ditambahkan. Data Kerusakan sudah ada.";
+            echo json_encode($res);
+            die;
+        }
 
         // upload file gambar
         if($_FILES['gambar']['name'] != ""){
