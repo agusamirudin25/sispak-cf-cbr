@@ -61,6 +61,15 @@ class Gejala
         $kode_gejala = $input['kode_gejala'];
         $nama_gejala = $input['gejala'];
 
+        // cek apakah nama gejala sudah ada
+        $cek_nama_gejala = $this->_db->other_query("SELECT * FROM tb_gejala WHERE gejala = '{$nama_gejala}'", 1);
+        if ($cek_nama_gejala) {
+            $res['status'] = 0;
+            $res['msg'] = "Data Gejala gagal ditambahkan. Nama Gejala sudah ada.";
+            echo json_encode($res);
+            die;
+        }
+
         // query insert
         $insert = $this->_db->insert("INSERT INTO tb_gejala(id_gejala, gejala) values ('$kode_gejala', '$nama_gejala')");
         if ($insert) {
@@ -86,6 +95,15 @@ class Gejala
         $input = post();
         $kode_gejala = $input['kode_gejala'];
         $nama_gejala = $input['gejala'];
+
+        // cek apakah nama gejala sudah ada
+        $cek_nama_gejala = $this->_db->other_query("SELECT * FROM tb_gejala WHERE gejala = '{$nama_gejala}' AND id_gejala != '{$kode_gejala}'", 1);
+        if ($cek_nama_gejala) {
+            $res['status'] = 0;
+            $res['msg'] = "Data Gejala gagal ditambahkan. Nama Gejala sudah ada.";
+            echo json_encode($res);
+            die;
+        }
         // query update
         $update = $this->_db->edit("UPDATE tb_gejala SET gejala = '$nama_gejala' WHERE id_gejala = '$kode_gejala'");
         if ($update) {
