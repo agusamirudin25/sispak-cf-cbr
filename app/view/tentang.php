@@ -10,6 +10,9 @@
                             <h3 class="nk-block-title page-title">STMIK HORIZON KARAWANG 2022</h3>
                         </div><!-- .nk-block-head-content -->
                     </div><!-- .nk-block-between -->
+                    <div class="text-center">
+                        <img src="<?= asset('assets/images/logo-horizon.png') ?>" alt="" width="15%" class="img img-fluid">
+                    </div>
                 </div><!-- .nk-block-head -->
                 <div class="nk-block">
                     <div class="row g-gs">
