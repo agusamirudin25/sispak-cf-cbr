@@ -23,7 +23,6 @@ class Gejala
 
     public function index()
     {
-        $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Mekanik';
         $data['gejala'] = $this->_db->other_query("SELECT * FROM tb_gejala", 2);
         view('layouts/_head');
         view('gejala/index', $data);
@@ -71,7 +70,7 @@ class Gejala
         }
 
         // query insert
-        $insert = $this->_db->insert("INSERT INTO tb_gejala(id_gejala, gejala) values ('$kode_gejala', '$nama_gejala')");
+        $insert = $this->_db->insert("INSERT INTO tb_gejala(id_gejala, gejala, `status`) values ('$kode_gejala', '$nama_gejala', 0)");
         if ($insert) {
             $res['status'] = 1;
             $res['msg'] = "Data Gejala berhasil ditambahkan";
@@ -116,6 +115,34 @@ class Gejala
         }
         echo json_encode($res);
     }
+
+    public function verifikasiGejala()
+    {
+        $data['gejala'] = $this->_db->other_query("SELECT * FROM tb_gejala ORDER BY `status`", 2);
+        view('layouts/_head');
+        view('gejala/verif', $data);
+        view('layouts/_foot');
+    }
+
+    public function prosesVerifGejala()
+    {
+        $input = post();
+        $kode_gejala = $input['id'];
+        $status = $input['status'];
+
+        // query update
+        $update = $this->_db->edit("UPDATE tb_gejala SET `status` = '$status' WHERE id_gejala = '$kode_gejala'");
+        if ($update) {
+            $res['status'] = 1;
+            $res['msg'] = "Data Gejala berhasil diverifikasi";
+            $res['page'] = "Gejala/verifikasiGejala";
+        } else {
+            $res['status'] = 0;
+            $res['msg'] = "Data Gejala gagal diverifikasi";
+        }
+        echo json_encode($res);
+    }
+
     public function hapusGejala()
     {
         $input = post();

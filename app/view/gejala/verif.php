@@ -6,8 +6,7 @@
                 <div class="nk-block nk-block-lg">
                     <div class="nk-block-head">
                         <div class="nk-block-head-content">
-                            <h4 class="nk-block-title">Data Gejala</h4>
-                            <a href="<?= base_url('Gejala/tambahGejala') ?>" class="btn btn-primary">Tambah Data</a>
+                            <h4 class="nk-block-title">Verifikasi Data Gejala</h4>
                         </div>
                     </div>
                     <div class="card card-preview">
@@ -32,7 +31,7 @@
                                         $statusVerif = '<span class="badge badge-success">Terverifikasi</span>';
                                     }else{
                                         $statusVerif = '<span class="badge badge-danger">Ditolak</span>';
-                                    }   
+                                    }
                                     ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
@@ -40,8 +39,10 @@
                                         <td><?= $row['gejala'] ?></td>
                                         <td><?= $statusVerif ?></td>
                                         <td>
-                                            <a href="<?= base_url('Gejala/ubahGejala/' . $row['id_gejala']) ?>" class="btn btn-warning">Edit</a>
-                                            <a href="#" onclick="delete_data('<?= $row['id_gejala'] ?>', 'Gejala/hapusGejala')" role="button" class="btn btn-danger">Delete</a>
+                                            <?php if($row['status'] == 0) : ?>
+                                            <a href="#" onclick="verif_data('<?= $row['id_gejala'] ?>', 'Gejala/prosesVerifGejala', 'Apakah Anda yakin verifikasi data ini?', '1')" role="button" class="btn btn-warning">Verifikasi</a>
+                                            <a href="#" onclick="verif_data('<?= $row['id_gejala'] ?>', 'Gejala/prosesVerifGejala', 'Apakah Anda yakin verifikasi data ini?', '-1')" role="button" class="btn btn-danger">Tolak</a>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
