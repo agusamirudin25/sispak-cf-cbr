@@ -27,7 +27,8 @@ class Pengetahuan
         $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Pakar';
         $data['pengetahuan'] = $this->_db->other_query("SELECT tb_pengetahuan.id_pengetahuan, tb_pengetahuan.kode_gejala, tb_gejala.gejala, tb_pengetahuan.kode_kerusakan, tb_kerusakan.kerusakan, tb_pengetahuan.bobot FROM tb_pengetahuan
         JOIN tb_gejala ON tb_pengetahuan.kode_gejala = tb_gejala.id_gejala
-        JOIN tb_kerusakan ON tb_pengetahuan.kode_kerusakan = tb_kerusakan.id_kerusakan", 2);
+        JOIN tb_kerusakan ON tb_pengetahuan.kode_kerusakan = tb_kerusakan.id_kerusakan
+        WHERE tb_gejala.status = 1 AND tb_kerusakan.status = 1", 2);
         view('layouts/_head');
         view('pengetahuan/index', $data);
         view('layouts/_foot');
@@ -36,8 +37,8 @@ class Pengetahuan
     public function tambahPengetahuan()
     {
         $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Pakar';
-        $data['gejala'] = $this->_db->other_query("SELECT * FROM tb_gejala", 2);
-        $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan", 2);
+        $data['gejala'] = $this->_db->other_query("SELECT * FROM tb_gejala WHERE `status` = 1", 2);
+        $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan WHERE `status` = 1", 2);
         $data['bobot'] = $this->_db->other_query("SELECT * FROM tb_bobot", 2);
         view('layouts/_head');
         view('pengetahuan/tambah_data', $data);
@@ -73,8 +74,8 @@ class Pengetahuan
     {
         $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Pakar';
         $data['pengetahuan'] = $this->_db->get("SELECT * FROM tb_pengetahuan WHERE id_pengetahuan = '$kode'");
-        $data['gejala'] = $this->_db->other_query("SELECT * FROM tb_gejala", 2);
-        $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan", 2);
+        $data['gejala'] = $this->_db->other_query("SELECT * FROM tb_gejala WHERE `status` = 1", 2);
+        $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan WHERE `status` = 1", 2);
         $data['bobot'] = $this->_db->other_query("SELECT * FROM tb_bobot", 2);
         view('layouts/_head');
         view('pengetahuan/ubah_data', $data);

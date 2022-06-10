@@ -71,7 +71,7 @@ class Kerusakan
         $gambar_baru = date('dmYHis') . $gambar;
         $path = "./assets/gambar/" . $gambar_baru;
         if (move_uploaded_file($tmp, $path)) {
-            $insert = $this->_db->insert("INSERT INTO tb_kerusakan(id_kerusakan, kerusakan, solusi, alat, gambar) values ('$kode_kerusakan', '$nama_kerusakan', '$solusi', '$alat', '$gambar_baru')");
+            $insert = $this->_db->insert("INSERT INTO tb_kerusakan(id_kerusakan, kerusakan, solusi, alat, gambar, `status`) values ('$kode_kerusakan', '$nama_kerusakan', '$solusi', '$alat', '$gambar_baru', 0)");
             if ($insert) {
                 $res['status'] = 1;
                 $res['msg'] = "Data Kerusakan berhasil ditambahkan";
@@ -133,6 +133,34 @@ class Kerusakan
         }
         echo json_encode($res);
     }
+
+    public function verifikasiKerusakan()
+    {
+        $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan ORDER BY `status`", 2);
+        view('layouts/_head');
+        view('kerusakan/verif', $data);
+        view('layouts/_foot');
+    }
+
+    public function prosesVerifKerusakan()
+    {
+        $input = post();
+        $kode_kerusakan = $input['id'];
+        $status = $input['status'];
+
+        // query update
+        $update = $this->_db->edit("UPDATE tb_kerusakan SET `status` = '$status' WHERE id_kerusakan = '$kode_kerusakan'");
+        if ($update) {
+            $res['status'] = 1;
+            $res['msg'] = "Data Kerusakan berhasil diverifikasi";
+            $res['page'] = "Kerusakan/verifikasiKerusakan";
+        } else {
+            $res['status'] = 0;
+            $res['msg'] = "Data Kerusakan gagal diverifikasi";
+        }
+        echo json_encode($res);
+    }
+
     public function hapusKerusakan()
     {
         $input = post();
