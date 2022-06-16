@@ -43,9 +43,9 @@
                                     </div><!-- .foem-group -->
                                     <div class="form-group">
                                         <div class="form-label-group">
-                                            <label class="form-label" for="email">Email</label>
+                                            <label class="form-label" for="email">Username</label>
                                         </div>
-                                        <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Masukan email kamu">
+                                        <input type="text" name="email" id="email" class="form-control form-control-lg" placeholder="Masukan username kamu">
                                     </div><!-- .foem-group -->
                                     <div class="form-group">
                                         <div class="form-label-group">

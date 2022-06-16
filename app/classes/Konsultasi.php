@@ -10,7 +10,7 @@ class Konsultasi
 {
     protected $_db;
     protected $id;
-    protected $email;
+    protected $username;
     protected $pertanyaan;
 
     public function __construct()
@@ -24,11 +24,11 @@ class Konsultasi
     public function index()
     {
         $type = session_get('type');
-        $emailPengguna = session_get('emailPengguna');
+        $usernamePengguna = session_get('emailPengguna');
         if ($type == 3) {
-            $data['konsultasi'] = $this->_db->other_query("SELECT tb_konsultasi.*, tb_pengguna.nama_lengkap FROM tb_konsultasi JOIN tb_pengguna ON tb_konsultasi.email = tb_pengguna.email WHERE tb_konsultasi.email = '$emailPengguna' ORDER BY created_at DESC", 2);
+            $data['konsultasi'] = $this->_db->other_query("SELECT tb_konsultasi.*, tb_pengguna.nama_lengkap FROM tb_konsultasi JOIN tb_pengguna ON tb_konsultasi.username = tb_pengguna.username WHERE tb_konsultasi.username = '$usernamePengguna' ORDER BY created_at DESC", 2);
         } else {
-            $data['konsultasi'] = $this->_db->other_query("SELECT tb_konsultasi.*, tb_pengguna.nama_lengkap FROM tb_konsultasi JOIN tb_pengguna ON tb_konsultasi.email = tb_pengguna.email ORDER BY created_at DESC", 2);
+            $data['konsultasi'] = $this->_db->other_query("SELECT tb_konsultasi.*, tb_pengguna.nama_lengkap FROM tb_konsultasi JOIN tb_pengguna ON tb_konsultasi.username = tb_pengguna.username ORDER BY created_at DESC", 2);
         }
         view('layouts/_head');
         view('konsultasi/index', $data);
@@ -46,12 +46,12 @@ class Konsultasi
     {
         $input = post();
         $pesan = $input['pesan'];
-        $email = session_get('emailPengguna');
-        $sql = "INSERT INTO tb_konsultasi (pertanyaan, email) VALUES ('$pesan', '$email')";
+        $username = session_get('emailPengguna');
+        $sql = "INSERT INTO tb_konsultasi (pertanyaan, username) VALUES ('$pesan', '$username')";
         // query insert
         $insert = $this->_db->insert($sql);
         // get last data
-        $lastData = $this->_db->other_query("SELECT * FROM tb_konsultasi WHERE email = '$email' ORDER BY id_konsultasi DESC LIMIT 1", 2);
+        $lastData = $this->_db->other_query("SELECT * FROM tb_konsultasi WHERE username = '$username' ORDER BY id_konsultasi DESC LIMIT 1", 2);
         if ($insert) {
             $res['status'] = 1;
             $res['msg'] = "Sukses kirim";
@@ -66,7 +66,7 @@ class Konsultasi
     public function detailKonsultasi($id)
     {
         // select data
-        $data['konsultasi'] = $this->_db->other_query("SELECT tb_konsultasi.*, tb_pengguna.nama_lengkap FROM tb_konsultasi JOIN tb_pengguna ON tb_konsultasi.email = tb_pengguna.email WHERE id_konsultasi = '$id'");
+        $data['konsultasi'] = $this->_db->other_query("SELECT tb_konsultasi.*, tb_pengguna.nama_lengkap FROM tb_konsultasi JOIN tb_pengguna ON tb_konsultasi.username = tb_pengguna.username WHERE id_konsultasi = '$id'");
         // select jawaban
         $data['jawaban'] = $this->_db->other_query("SELECT * FROM tb_jawaban_konsultasi WHERE id_konsultasi = '$id' ORDER BY created_at", 2);
         $data['id_konsultasi'] = $id;
@@ -97,6 +97,22 @@ class Konsultasi
             $res['msg'] = "Gagal kirim";
         }
         echo json_encode($input);
+    
+    }  
+
+    public function hapusKonsultasi()
+    {
+        $input = post();
+        $id = $input['id'];
+        $delete = $this->_db->delete('tb_konsultasi', 'id_konsultasi', "'" . $id . "'");
+        if ($delete) {
+            $res['status'] = 1;
+            $res['msg'] = "Data konsultasi berhasil dihapus";
+            $res['page'] = "Konsultasi";
+        } else {
+            $res['status'] = 0;
+            $res['msg'] = "Data konsultasi gagal dihapus";
+        }
+        echo json_encode($res);
     }
-   
 }

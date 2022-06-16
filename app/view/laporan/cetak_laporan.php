@@ -9,7 +9,7 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Email</th>
+                    <th>Username</th>
                     <th>Nama Lengkap</th>
                     <th>Nama Kerusakan (Hasil)</th>
                     <th>Hasil Diagnosis</th>
@@ -21,7 +21,7 @@
             foreach ($diagnosis as $row) : ?>
                 <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $row['email'] ?></td>
+                    <td><?= $row['username'] ?></td>
                     <td><?= $row['nama_lengkap'] ?></td>
                     <td><?= $row['nama_kerusakan'] ?></td>
                     <td><?= 'CF = ' . $row['nilai_cf'] . '<br>' . 'CBR = ' . $row['nilai_cbr'] ?></td>
@@ -36,13 +36,13 @@
             <tr>
                 <td style="width: 80%;">&nbsp;</td>
                 <td>
-                    <p>Jakarta, <?= tgl_indo(date('d-m-Y')) ?></p>
+                    <p>Karawang, <?= tgl_indo(date('d-m-Y')) ?></p>
                     <p>Kepala Bengkel</p>
                     <br>
                     <br>
                     <br>
                     <br>
-                    <p>Siti Nurjanah </p>
+                    <p>Lukman Hakim</p>
                 </td>
             </tr>
         </table>

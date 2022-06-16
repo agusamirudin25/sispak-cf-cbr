@@ -136,7 +136,7 @@ class Kerusakan
 
     public function verifikasiKerusakan()
     {
-        $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan ORDER BY `status`", 2);
+        $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan", 2);
         view('layouts/_head');
         view('kerusakan/verif', $data);
         view('layouts/_foot');
@@ -152,7 +152,7 @@ class Kerusakan
         $update = $this->_db->edit("UPDATE tb_kerusakan SET `status` = '$status' WHERE id_kerusakan = '$kode_kerusakan'");
         if ($update) {
             $res['status'] = 1;
-            $res['msg'] = "Data Kerusakan berhasil diverifikasi";
+            $res['msg'] = $status == 1 ? "Data Kerusakan berhasil diverifikasi" : "Data Kerusakan berhasil ditolak";
             $res['page'] = "Kerusakan/verifikasiKerusakan";
         } else {
             $res['status'] = 0;
@@ -175,5 +175,6 @@ class Kerusakan
             $res['msg'] = "Data gagal dihapus";
         }
         echo json_encode($res);
+    
     }
 }

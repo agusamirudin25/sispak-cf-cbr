@@ -48,19 +48,19 @@
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Pengguna/index') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user"></em></span>
-                                        <span class="nk-menu-text">Data Pengguna</span>
+                                        <span class="nk-menu-text">Kelola Data Pengguna</span>
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Gejala') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-cpu"></em></span>
-                                        <span class="nk-menu-text">Data Gejala</span>
+                                        <span class="nk-menu-text">Kelola Data Gejala</span>
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
                                     <a href="<?= base_url('Kerusakan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-virus"></em></span>
-                                        <span class="nk-menu-text">Data Kerusakan</span>
+                                        <span class="nk-menu-text">Kelola Data Kerusakan</span>
                                     </a>
                                 </li>
                                
@@ -103,6 +103,7 @@
                                         <a href="<?= base_url('Konsultasi') ?>" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
                                             <span class="nk-menu-text">Konsultasi</span>
+                                            <span class="badge badge-pill badge-warning total-konsul-menu">0</span>
                                         </a>
                                     </li>
                                     <li class="nk-menu-item">
@@ -129,7 +130,7 @@
                                 <?php endif; ?>
 
                                 <li class="nk-menu-item">
-                                    <a href="<?= base_url('Auth/logout') ?>" class="nk-menu-link">
+                                    <a href="javascript:void(0)" onclick="alertConfirm('<?= base_url('Auth/logout') ?>', 'Apakah anda yakin akan keluar?')" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-signout"></em></span>
                                         <span class="nk-menu-text">Logout</span>
                                     </a>
@@ -181,11 +182,37 @@
                                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropdown-menu-s1">
                                             <div class="dropdown-inner">
                                                 <ul class="link-list">
-                                                    <li><a href="<?= base_url('Auth/logout') ?>"><em class="icon ni ni-signout"></em><span>Log out</span></a></li>
+                                                    <li><a href="javascript:void(0)" onclick="alertConfirm('<?= base_url('Auth/logout') ?>', 'Apakah anda yakin akan keluar?')"><em class="icon ni ni-signout"></em><span>Log out</span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </li><!-- .dropdown -->
+                                    <?php if(session_get('type') == 2) : ?>
+                                    <li class="dropdown notification-dropdown mr-n1">
+                                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
+                                            <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right dropdown-menu-s1">
+                                            <div class="dropdown-head">
+                                                <span class="sub-title nk-dropdown-title">Notifikasi</span>
+                                            </div>
+                                            <div class="dropdown-body">
+                                                <div class="nk-notification">
+                                                    <div class="nk-notification-item dropdown-inner">
+                                                        <div class="nk-notification-icon">
+                                                            <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
+                                                        </div>
+                                                        <div class="nk-notification-content">
+                                                            <a href="<?= base_url('Konsultasi') ?>">
+                                                                <div class="nk-notification-text total-konsul">0 Konsultasi</div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- .nk-notification -->
+                                            </div><!-- .nk-dropdown-body -->
+                                        </div>
+                                    </li><!-- .dropdown -->
+                                    <?php endif; ?>
                                 </ul><!-- .nk-quick-nav -->
                             </div><!-- .nk-header-tools -->
                         </div><!-- .nk-header-wrap -->
