@@ -16,7 +16,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Email</th>
+                                        <th>Username</th>
                                         <th>Nama</th>
                                         <th>Tipe</th>
                                         <th>Aksi</th>
@@ -27,12 +27,12 @@
                                     <?php foreach($pengguna as $key => $value): ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $value['email'] ?></td>
+                                        <td><?= $value['username'] ?></td>
                                         <td><?= $value['nama_lengkap'] ?></td>
                                         <td><?= $value['role'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('Pengguna/ubahPengguna/' . $value['email']) ?>" class="btn btn-warning">Edit</a>
-                                            <a href="#" onclick="delete_data('<?= $value['email'] ?>', 'Pengguna/hapusPengguna')" role="button" class="btn btn-danger">Delete</a>
+                                            <a href="<?= base_url('Pengguna/ubahPengguna/' . $value['username']) ?>" class="btn btn-warning">Edit</a>
+                                            <a href="#" onclick="delete_data('<?= $value['username'] ?>', 'Pengguna/hapusPengguna')" role="button" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

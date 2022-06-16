@@ -40,9 +40,9 @@
                                 <form method="post" id="formLogin" autocomplete="off">
                                     <div class="form-group">
                                         <div class="form-label-group">
-                                            <label class="form-label" for="default-01">Email</label>
+                                            <label class="form-label" for="default-01">Username</label>
                                         </div>
-                                        <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Masukan email kamu">
+                                        <input type="text" name="email" id="email" class="form-control form-control-lg" placeholder="Masukan username kamu">
                                     </div><!-- .foem-group -->
                                     <div class="form-group">
                                         <div class="form-label-group">

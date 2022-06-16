@@ -17,6 +17,11 @@
 <!-- app-root @e -->
 </body>
 <script>
+    $(document).ready(function() {
+        setInterval(() => {
+            setNotif()
+        }, 1000);
+    });
     function delete_data(id, ajax) {
          Swal.fire({
              title: "Sistem Pakar",
@@ -74,7 +79,7 @@
                          if (data.status == 1) {
                              Swal.fire(
                                  "Sistem Pakar",
-                                 'Berhasil Verifikasi.',
+                                 data.msg,
                                  'success'
                              ).then(function() {
                                  window.location = "<?= base_url() ?>" + data.page;
@@ -86,5 +91,58 @@
              }
          })
      }
+
+    function alertConfirm(route, message = null)
+    {
+        if(message == null || message == '' || !message){
+            Swal.fire({
+                title: "Sistem Pakar",
+                text: `Apakah Anda yakin mengubah status ?`,
+                showDenyButton: true,
+                showCancelButton: true,
+                allowOutsideClick: false,
+                confirmButtonText: `Yakin`,
+                denyButtonText: `Tidak`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = route;
+                } else if (result.isDenied) {
+                    return false;
+                }
+            })
+        }else{
+            Swal.fire({
+                text: message,
+                title: "Sistem Pakar",
+                showDenyButton: true,
+                showCancelButton: true,
+                allowOutsideClick: false,
+                confirmButtonText: `Yakin`,
+                denyButtonText: `Tidak`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = route;
+                } else if (result.isDenied) {
+                    return false;
+                }
+            })
+        }
+    }
+
+    const setNotif = () => {
+        $.ajax({
+            type: 'POST',
+            url: "<?= base_url('Dashboard/getNotif') ?>",
+            data: '',
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+                $('.total-konsul').html(`${data.total} Konsultasi`)
+                $('.total-konsul-menu').html(`${data.total}`)
+            }
+        });
+    }
+
 </script>
 </html>

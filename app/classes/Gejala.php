@@ -29,14 +29,6 @@ class Gejala
         view('layouts/_foot');
     }
 
-    public function cariData($tabel, $field)
-    {
-        $data['gejala'] = $this->_db->other_query("SELECT * FROM {$tabel} WHERE {$field} LIKE '%" . $_POST['cari'] . "%'", 2);
-        view('layouts/_head');
-        view('gejala/index', $data);
-        view('layouts/_foot');
-    }
-
     public function tambahGejala()
     {
         $data['role'] = (session_get('type') == 1) ? 'Admin' : 'Mekanik';
@@ -118,7 +110,7 @@ class Gejala
 
     public function verifikasiGejala()
     {
-        $data['gejala'] = $this->_db->other_query("SELECT * FROM tb_gejala ORDER BY `status`", 2);
+        $data['gejala'] = $this->_db->other_query("SELECT * FROM tb_gejala", 2);
         view('layouts/_head');
         view('gejala/verif', $data);
         view('layouts/_foot');
@@ -134,7 +126,7 @@ class Gejala
         $update = $this->_db->edit("UPDATE tb_gejala SET `status` = '$status' WHERE id_gejala = '$kode_gejala'");
         if ($update) {
             $res['status'] = 1;
-            $res['msg'] = "Data Gejala berhasil diverifikasi";
+            $res['msg'] = $status == 1 ? "Data Gejala berhasil diverifikasi" : "Data Gejala berhasil ditolak";
             $res['page'] = "Gejala/verifikasiGejala";
         } else {
             $res['status'] = 0;
@@ -157,5 +149,6 @@ class Gejala
             $res['msg'] = "Data gagal dihapus";
         }
         echo json_encode($res);
+        
     }
 }

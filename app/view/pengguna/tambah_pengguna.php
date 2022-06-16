@@ -23,9 +23,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="email">Alamat Email</label>
+                                            <label class="form-label" for="email">Username</label>
                                             <div class="form-control-wrap">
-                                                <input type="email" class="form-control" placeholder="Alamat Email" id="email" name="email" required>
+                                                <input type="text" class="form-control" placeholder="Username" id="email" name="email" required>
                                             </div>
                                         </div>
                                     </div>

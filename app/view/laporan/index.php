@@ -56,9 +56,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Email</th>
+                                        <th>Username</th>
                                         <th>Nama</th>
-                                        <th>Nama Penyakit</th>
+                                        <th>Nama Kerusakan</th>
                                         <th>Hasil</th>
                                     </tr>
                                 </thead>
@@ -67,7 +67,7 @@
                                     foreach ($diagnosis as $row) : ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
-                                            <td><?= $row['email'] ?></td>
+                                            <td><?= $row['username'] ?></td>
                                             <td><?= $row['nama_lengkap'] ?></td>
                                             <td><?= $row['nama_kerusakan'] ?></td>
                                             <td><?= 'CF = ' . $row['nilai_cf'] . '<br>' . 'CBR = ' . $row['nilai_cbr'] ?></td>

@@ -40,4 +40,10 @@ class Dashboard
         view('layouts/_foot');
     }
 
+    public function getNotif()
+    {
+        $data = $this->_db->other_query('SELECT count(id_konsultasi) as total FROM tb_konsultasi', 1);
+        echo json_encode($data);
+    }
+
 }

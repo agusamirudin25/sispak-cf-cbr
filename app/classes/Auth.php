@@ -26,17 +26,17 @@ class Auth
     public function cek_login()
     {
         $input = post($_POST);
-        $email = $input['email'];
+        $username = $input['email'];
         $password = $input['password'];
-        $user = $this->auth->get("SELECT * from tb_pengguna WHERE email = '$email'");
+        $user = $this->auth->get("SELECT * from tb_pengguna WHERE username = '$username'");
         if ($user) {
             if ($user->status != '1') {
-                $data['msg'] = 'Email atau password tidak ditemukan !';
+                $data['msg'] = 'Username atau password tidak ditemukan !';
                 $data['title'] = 'Login Failed ';
                 $data['login_status'] = 0;
             } else {
                 if (password_verify($password, $user->password)) :
-                    $emailPengguna = $user->email;
+                    $emailPengguna = $user->username;
                     $nama = $user->nama_lengkap;
                     $type = $user->tipe;
                     
@@ -52,13 +52,13 @@ class Auth
                     session_set('nama', $nama);
                     session_set('type', $type);
                 else :
-                    $data['msg'] = 'Email atau password tidak ditemukan !';
+                    $data['msg'] = 'Username atau password tidak ditemukan !';
                     $data['title'] = 'Login Failed ';
                     $data['login_status'] = 0;
                 endif;
             }
         } else {
-            $data['msg'] = 'Email atau password tidak ditemukan !';
+            $data['msg'] = 'Username atau password tidak ditemukan !';
             $data['title'] = 'Login Failed ';
             $data['login_status'] = 0;
         }
@@ -76,13 +76,13 @@ class Auth
     {
         $input = post($_POST);
         $nama = $input['nama_lengkap'];
-        $email = $input['email'];
+        $username = $input['email'];
         $password = $input['password'];
 
-       // cek duplikasi email
-        $cek_email = $this->auth->get("SELECT * from tb_pengguna WHERE email = '$email'");
-        if ($cek_email) {
-            $data['msg'] = 'Email sudah terdaftar !';
+       // cek duplikasi username
+        $cek_username = $this->auth->get("SELECT * from tb_pengguna WHERE username = '$username'");
+        if ($cek_username) {
+            $data['msg'] = 'Username sudah terdaftar !';
             $data['title'] = 'Registrasi Failed ';
             $data['status'] = 0;
         } else {
@@ -92,7 +92,7 @@ class Auth
             $data['page'] = 'Auth';
             // insert
             $password = password_hash($password, PASSWORD_DEFAULT);
-            $this->auth->insert("INSERT INTO tb_pengguna (nama_lengkap, email, `password`, tipe, `status`) VALUES ('$nama', '$email', '$password', '3', 1)");
+            $this->auth->insert("INSERT INTO tb_pengguna (nama_lengkap, username, `password`, tipe, `status`) VALUES ('$nama', '$username', '$password', '3', 1)");
         }
         echo json_encode($data);
         die;

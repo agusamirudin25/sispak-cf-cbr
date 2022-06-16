@@ -32,6 +32,7 @@
                                         <td><?= $row['nama_lengkap'] ?></td>
                                         <td>
                                             <a href="<?= base_url('Konsultasi/detailKonsultasi/' . $row['id_konsultasi']) ?>" class="btn btn-warning">Lihat</a>
+                                            <a href="#" onclick="delete_data('<?= $row['id_konsultasi'] ?>', 'Konsultasi/hapusKonsultasi')" role="button" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

@@ -27,7 +27,7 @@ class Laporan
             tb_kerusakan.kerusakan as nama_kerusakan
         FROM
             tb_diagnosis
-            JOIN tb_pengguna ON tb_diagnosis.email = tb_pengguna.email
+            JOIN tb_pengguna ON tb_diagnosis.username = tb_pengguna.username
             JOIN tb_kerusakan ON tb_diagnosis.kerusakan = tb_kerusakan.id_kerusakan";
         if($tahun != null && $bulan != null) {
             $query .= " WHERE YEAR(tb_diagnosis.created_at) = $tahun";
@@ -51,7 +51,7 @@ class Laporan
             tb_kerusakan.kerusakan as nama_kerusakan
         FROM
             tb_diagnosis
-            JOIN tb_pengguna ON tb_diagnosis.email = tb_pengguna.email
+            JOIN tb_pengguna ON tb_diagnosis.username = tb_pengguna.username
             JOIN tb_kerusakan ON tb_diagnosis.kerusakan = tb_kerusakan.id_kerusakan";
         if($tahun != null && $bulan != null) {
             $query .= " WHERE YEAR(tb_diagnosis.created_at) = $tahun";
@@ -61,5 +61,6 @@ class Laporan
         $data['tahun'] = $tahun;
         $data['bulan'] = bulan($bulan);
         view('laporan/cetak_laporan', $data);
+    
     }
 }

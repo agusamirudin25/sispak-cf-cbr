@@ -10,7 +10,7 @@ class Diagnosis
 {
     protected $_db;
     protected $id;
-    protected $email;
+    protected $username;
     protected $data_gejala;
     protected $kerusakan;
     protected $nilai_cf;
@@ -161,9 +161,9 @@ class Diagnosis
         $data['keterangan_cbr'] = $keterangan_cbr;
 
         // insert data ke tb_diagnosis
-        $emailPengguna = session_get('emailPengguna');
+        $usernamePengguna = session_get('emailPengguna');
         $data_gejala = json_encode($gejala);
-        $sql = "INSERT INTO tb_diagnosis (email, kerusakan, data_gejala, nilai_cf, nilai_cbr) VALUES ('$emailPengguna', '$kode_kerusakan', '$data_gejala', '$nilai_akhir_cf', '$hasil_cbr')";
+        $sql = "INSERT INTO tb_diagnosis (username, kerusakan, data_gejala, nilai_cf, nilai_cbr) VALUES ('$usernamePengguna', '$kode_kerusakan', '$data_gejala', '$nilai_akhir_cf', '$hasil_cbr')";
         $this->_db->insert($sql);
         // store to session
         session_set('sessData', $data);

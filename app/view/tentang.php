@@ -45,7 +45,7 @@
                                             <div class="title">
                                                 <span>Nama Pembimbing 1</span>
                                             </div>
-                                            <p>Dosen Pembimbing 1</p>
+                                            <p>Arif Budimansyah Purba, M.Kom</p>
                                         </div>
                                     </li>
                                     <li class="nk-support-item">
@@ -56,7 +56,7 @@
                                             <div class="title">
                                                 <span>Nama Pembimbing 2</span>
                                             </div>
-                                            <p>Dosen Pembimbing 2</p>
+                                            <p>Dedih, M.Kom</p>
                                         </div>
                                     </li>
                                 </ul>
