@@ -42,7 +42,13 @@ class Dashboard
 
     public function getNotif()
     {
-        $data = $this->_db->other_query('SELECT count(id_konsultasi) as total FROM tb_konsultasi', 1);
+        $role = session_get('type');
+        $username = session_get('emailPengguna');
+        if($role == 2){
+            $data = $this->_db->other_query('SELECT count(id_konsultasi) as total FROM tb_konsultasi', 1);
+        }else{
+            $data = $this->_db->other_query("SELECT count(id_konsultasi) as total FROM tb_konsultasi WHERE username = '{$username}'", 1);
+        }
         echo json_encode($data);
     }
 
