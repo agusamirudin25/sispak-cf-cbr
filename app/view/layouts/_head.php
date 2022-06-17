@@ -125,6 +125,7 @@
                                         <a href="<?= base_url('Konsultasi') ?>" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-cc-alt2-fill"></em></span>
                                             <span class="nk-menu-text">Konsultasi</span>
+                                            <span class="badge badge-pill badge-warning total-konsul-menu">0</span>
                                         </a>
                                     </li>
                                 <?php endif; ?>
@@ -187,7 +188,7 @@
                                             </div>
                                         </div>
                                     </li><!-- .dropdown -->
-                                    <?php if(session_get('type') == 2) : ?>
+                                    <?php if(session_get('type') != 1) : ?>
                                     <li class="dropdown notification-dropdown mr-n1">
                                         <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
                                             <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
