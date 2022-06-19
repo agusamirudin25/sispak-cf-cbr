@@ -16,26 +16,37 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kode Kerusakan</th>
+                                        <th style="white-space: normal;">Kode Kerusakan</th>
                                         <th>Kerusakan</th>
                                         <th>Solusi</th>
                                         <th>Alat</th>
                                         <th>Gambar</th>
+                                        <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 1; ?>
-                                    <?php foreach($kerusakan as $row): ?>
+                                    <?php foreach($kerusakan as $row):
+                                       $statusVerif = ""; 
+                                       if($row['status'] == 0){
+                                           $statusVerif = '<span class="badge badge-info">Belum verifikasi</span>';
+                                       }elseif($row['status'] == 1){
+                                           $statusVerif = '<span class="badge badge-success">Terverifikasi</span>';
+                                       }else{
+                                           $statusVerif = '<span class="badge badge-danger">Ditolak</span>';
+                                       }       
+                                    ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $row['id_kerusakan'] ?></td>
-                                        <td><?= $row['kerusakan'] ?></td>
+                                        <td style="white-space: normal;"><?= $row['kerusakan'] ?></td>
                                         <td style="white-space: normal;"><?= $row['solusi'] ?></td>
                                         <td style="white-space: normal;"><?= $row['alat'] ?></td>
                                         <td>
                                             <a href="<?= asset("assets/gambar") . "/" . $row['gambar'] ?>" target="_blank" class="btn btn-icon btn-sm btn-primary"><em class="icon ni ni-camera"></em></a>
                                         </td>
+                                        <td><?= $statusVerif ?></td>
                                         <td>
                                             <a href="<?= base_url('Kerusakan/ubahKerusakan/' . $row['id_kerusakan']) ?>" class="btn btn-warning">Edit</a>
                                             <a href="#" onclick="delete_data('<?= $row['id_kerusakan'] ?>', 'Kerusakan/hapusKerusakan')" role="button" class="btn btn-danger">Delete</a>
