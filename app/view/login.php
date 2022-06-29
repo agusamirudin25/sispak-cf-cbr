@@ -33,7 +33,7 @@
                                     <div class="nk-block-head-content">
                                         <h5 class="nk-block-title">Login</h5>
                                         <div class="nk-block-des">
-                                            <p>Silakan masukan email dan password kamu untuk menggunakan aplikasi ini.</p>
+                                            <p>Silakan masukan username dan password kamu untuk menggunakan aplikasi ini.</p>
                                         </div>
                                     </div>
                                 </div><!-- .nk-block-head -->

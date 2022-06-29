@@ -50,6 +50,12 @@
                                                 <?php endforeach; ?>
                                                 </select>
                                             </div>
+                                            <span class="text-info">*Keterangan Nilai Bobot Pakar:</span>
+                                            <ul class="text-info">
+                                                <?php foreach($bobot as $row) : ?>
+                                                <li><?= "{$row['nilai']} - {$row['keterangan']}" ?></li>
+                                                <?php endforeach; ?>
+                                            </ul>
                                         </div>
                                     </div>
                                                                        

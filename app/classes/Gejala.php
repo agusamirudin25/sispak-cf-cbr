@@ -61,12 +61,15 @@ class Gejala
             die;
         }
 
+        $statusVerifikasi = session_get('type') == 1 ? 0 : 1;
+        $message = session_get('type') == 1 ? "Data Gejala berhasil ditambahkan. Mohon menunggu verifikasi dari pakar." : "Data Gejala berhasil ditambahkan.";
+        $redirect = session_get('type') == 1 ? 'Gejala' : 'Gejala/verifikasiGejala';
         // query insert
-        $insert = $this->_db->insert("INSERT INTO tb_gejala(id_gejala, gejala, `status`) values ('$kode_gejala', '$nama_gejala', 0)");
+        $insert = $this->_db->insert("INSERT INTO tb_gejala(id_gejala, gejala, `status`) values ('$kode_gejala', '$nama_gejala', $statusVerifikasi)");
         if ($insert) {
             $res['status'] = 1;
-            $res['msg'] = "Data Gejala berhasil ditambahkan";
-            $res['page'] = "Gejala";
+            $res['msg'] = $message;
+            $res['page'] = $redirect;
         } else {
             $res['status'] = 0;
             $res['msg'] = "Data Gejala gagal ditambahkan";
