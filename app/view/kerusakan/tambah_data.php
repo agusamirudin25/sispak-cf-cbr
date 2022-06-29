@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="alat">ALat</label>
+                                            <label class="form-label" for="alat">Alat</label>
                                             <div class="form-control-wrap">
                                                 <input type="text" class="form-control" placeholder="Alat" id="alat" name="alat" required>
                                             </div>

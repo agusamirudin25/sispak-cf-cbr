@@ -65,17 +65,21 @@ class Kerusakan
             die;
         }
 
+        $statusVerifikasi = session_get('type') == 1 ? 0 : 1;
+        $message = session_get('type') == 1 ? "Data Kerusakan berhasil ditambahkan. Mohon menunggu verifikasi dari pakar." : "Data Kerusakan berhasil ditambahkan.";
+        $redirect = session_get('type') == 1 ? 'Kerusakan' : 'Kerusakan/verifikasiKerusakan';
+
         // upload file gambar
         $gambar = $_FILES['gambar']['name'];
         $tmp = $_FILES['gambar']['tmp_name'];
         $gambar_baru = date('dmYHis') . $gambar;
         $path = "./assets/gambar/" . $gambar_baru;
         if (move_uploaded_file($tmp, $path)) {
-            $insert = $this->_db->insert("INSERT INTO tb_kerusakan(id_kerusakan, kerusakan, solusi, alat, gambar, `status`) values ('$kode_kerusakan', '$nama_kerusakan', '$solusi', '$alat', '$gambar_baru', 0)");
+            $insert = $this->_db->insert("INSERT INTO tb_kerusakan(id_kerusakan, kerusakan, solusi, alat, gambar, `status`) values ('$kode_kerusakan', '$nama_kerusakan', '$solusi', '$alat', '$gambar_baru', '$statusVerifikasi')");
             if ($insert) {
                 $res['status'] = 1;
-                $res['msg'] = "Data Kerusakan berhasil ditambahkan";
-                $res['page'] = "Kerusakan";
+                $res['msg'] = $message;
+                $res['page'] = $redirect;
             } else {
                 $res['status'] = 0;
                 $res['msg'] = "Data Kerusakan gagal ditambahkan";

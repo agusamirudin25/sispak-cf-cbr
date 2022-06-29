@@ -7,6 +7,7 @@
                     <div class="nk-block-head">
                         <div class="nk-block-head-content">
                             <h4 class="nk-block-title">Verifikasi Data Kerusakan</h4>
+                            <a href="<?= base_url('Kerusakan/tambahKerusakan') ?>" class="btn btn-primary">Tambah Data</a>
                         </div>
                     </div>
                     <div class="card card-preview">
