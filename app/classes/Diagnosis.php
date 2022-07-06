@@ -50,6 +50,10 @@ class Diagnosis
                 $where_in .= ",'". $value ."'";
             }
         }
+
+        // memuncukan data kerusakan yang dipilih
+        $data_kerusakan = $this->_db->other_query("SELECT DISTINCT kode_kerusakan, tb_kerusakan.kerusakan, tb_kerusakan.solusi, tb_kerusakan.alat FROM `tb_pengetahuan` JOIN tb_kerusakan ON tb_pengetahuan.kode_kerusakan = tb_kerusakan.id_kerusakan WHERE kode_gejala IN ($where_in)", 2);
+
         $sql = "SELECT kode_kerusakan, count(kode_kerusakan) as total_gejala FROM tb_pengetahuan WHERE kode_gejala IN ($where_in) GROUP BY kode_kerusakan";
         $diagnosa = $this->_db->other_query($sql, 2);
         $paling_banyak_gejala = '';
@@ -145,7 +149,7 @@ class Diagnosis
         $persentase_hasil_cbr = number_format($hasil_cbr * 100, 0, '.', '');
         
         $data['input'] = $data;
-        $data['gejala'] = $this->_db->other_query("SELECT tb_gejala.id_gejala, tb_gejala.gejala, tb_pengetahuan.bobot FROM tb_gejala JOIN tb_pengetahuan ON tb_gejala.id_gejala = tb_pengetahuan.kode_gejala WHERE tb_gejala.id_gejala IN ($where_in) AND tb_pengetahuan.kode_kerusakan = '$kode_kerusakan'", 2);
+        $data['gejala'] = $this->_db->other_query("SELECT DISTINCT tb_gejala.id_gejala, tb_gejala.gejala, tb_pengetahuan.bobot FROM tb_gejala LEFT JOIN tb_pengetahuan ON tb_gejala.id_gejala = tb_pengetahuan.kode_gejala WHERE tb_gejala.id_gejala IN ($where_in) GROUP BY tb_gejala.id_gejala", 2);
         $data['kerusakan'] = $this->_db->other_query("SELECT * FROM tb_kerusakan WHERE id_kerusakan = '$kode_kerusakan'", 1);
         $data['nilai_perkalian_cf'] = $hasil_cf;
         $data['nilai_cf_combine'] = $hasil_cf_combine;
@@ -159,6 +163,7 @@ class Diagnosis
         $data['keterangan_perkalian_cf'] = $keterangan_perkalian_cf;
         $data['keterangan_cf_combine'] = $keterangan_cf_combine;
         $data['keterangan_cbr'] = $keterangan_cbr;
+        $data['data_kerusakan'] = $data_kerusakan;
 
         // insert data ke tb_diagnosis
         $usernamePengguna = session_get('emailPengguna');

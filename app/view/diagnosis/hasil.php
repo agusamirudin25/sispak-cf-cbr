@@ -37,9 +37,21 @@
                             </table>
 
                             <div class="nk-divider divider md"></div>
+                            <h6>Kerusakan yang mungkin terjadi</h6>
+                            <hr>
+                            <div class="row">
+                                <?php foreach($data_kerusakan as $item) : ?>
+                                <div class="col-md-12 mb-2 border shadow">
+                                    <p>Kerusakan : <br> <strong><?= $item['kerusakan'] ?></strong> </p>
+                                    <p>Solusi : <br> <strong><?= $item['solusi'] ?></strong> </p>
+                                    <p>Alat : <br> <strong><?= $item['alat'] ?></strong> </p>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <div class="nk-divider divider md"></div>
                             <div class="nk-block">
                                 <div class="nk-block-head nk-block-head-sm nk-block-between">
-                                    <h6 class="title">Kerusakan</h6>
+                                    <h6 class="title">Kerusakan yang cocok</h6>
                                 </div><!-- .nk-block-head -->
                                 <div class="bq-note">
                                     <div class="bq-note-item">
